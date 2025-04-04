@@ -11,5 +11,6 @@ https://unimate-hash.github.io/project/
 - 시간표 수정 기능 추가하기
 - 각 html에 홈화면으로 이동할 수 있게 버튼 추가하기
 - 빈 강의실 json 파일 데이터 입력하기
+- 태수가 작성한 html 파일에 짬뽕된 js, css 분리하기 4/5까지
 <br><br>
 태수가 작성한 js 코드 파일 제목 tea.js 임 참고하셈 메모할 거 있으면 여기에 ㄱㄱ
