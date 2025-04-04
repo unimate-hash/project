@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniMate</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 min-h-screen flex flex-col items-center justify-center px-4">
+
+  <!-- 로고 -->
+  <h1 class="text-5xl font-semibold mb-10">UniMate</h1>
+
+  <!-- 기능 아이콘 버튼 -->
+  <div class="flex flex-wrap justify-center gap-8 max-w-4xl mb-16">
+
+    <div class="flex flex-col items-center">
+      <button onclick="window.open('./calculator.html', '_blank')" class="w-20 h-20 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 flex items-center justify-center text-3xl">
+        🧮
+      </button>
+      <span class="mt-2 text-sm">학점 계산기</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <button onclick="window.open('./class.html', '_blank')" class="w-20 h-20 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 flex items-center justify-center text-3xl">
+        🚪
+      </button>
+      <span class="mt-2 text-sm">빈 강의실</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <button onclick="window.open('./timetable.html', '_blank')" class="w-20 h-20 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 flex items-center justify-center text-3xl">
+        📆
+      </button>
+      <span class="mt-2 text-sm">시간표</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <button onclick="window.open('https://www.mjc.ac.kr/mjcIntro.do', '_blank')" class="w-20 h-20 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 flex items-center justify-center text-3xl">
+        🏡
+      </button>
+      <span class="mt-2 text-sm">학교 홈페이지</span>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <button onclick="window.open('./assignment.html', '_blank')" class="w-20 h-20 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-300 flex items-center justify-center text-3xl">
+        📝
+      </button>
+      <span class="mt-2 text-sm">과제 관리</span>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-10 text-sm text-gray-500">
+    Inspired by Google
+  </footer>
+
+</body>
+</html>

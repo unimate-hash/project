@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>과제 관리 - UniMate</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    let tasks = JSON.parse(localStorage.getItem("assignments")) || [];
+
+    function saveTasks() {
+      localStorage.setItem("assignments", JSON.stringify(tasks));
+    }
+
+    function renderTasks() {
+      const container = document.getElementById("taskList");
+      container.innerHTML = "";
+
+      const sorted = [...tasks].sort((a, b) => new Date(a.due) - new Date(b.due));
+
+      for (const task of sorted) {
+        const div = document.createElement("div");
+        div.className = `p-3 mb-2 rounded border ${task.done ? 'bg-gray-100 line-through' : 'bg-white'} ${task.importance === '높음' ? 'border-red-500' : task.importance === '보통' ? 'border-yellow-500' : 'border-gray-300'}`;
+        div.innerHTML = `
+          <div class="flex justify-between items-center">
+            <div>
+              <div class="font-semibold text-lg">${task.subject}</div>
+              <div class="text-sm text-gray-600">마감일: ${task.due}</div>
+              <div class="text-sm text-gray-500">메모: ${task.memo}</div>
+            </div>
+            <div>
+              <input type="checkbox" ${task.done ? "checked" : ""} onchange="toggleDone('${task.id}')" class="mr-2">완료
+              <button onclick="deleteTask('${task.id}')" class="ml-2 text-red-500 hover:text-red-700">삭제</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(div);
+      }
+    }
+
+    function toggleDone(id) {
+      tasks = tasks.map(task => task.id === id ? { ...task, done: !task.done } : task);
+      saveTasks();
+      renderTasks();
+    }
+
+    function deleteTask(id) {
+      tasks = tasks.filter(task => task.id !== id);
+      saveTasks();
+      renderTasks();
+    }
+
+    function addTask() {
+      const subject = document.getElementById("subject").value;
+      const due = document.getElementById("due").value;
+      const importance = document.getElementById("importance").value;
+      const memo = document.getElementById("memo").value;
+
+      if (!subject || !due) {
+        alert("과목명과 마감일을 입력해주세요.");
+        return;
+      }
+
+      const newTask = {
+        id: Date.now().toString(),
+        subject,
+        due,
+        importance,
+        memo,
+        done: false
+      };
+
+      tasks.push(newTask);
+      saveTasks();
+      renderTasks();
+
+      document.getElementById("subject").value = "";
+      document.getElementById("due").value = "";
+      document.getElementById("importance").value = "보통";
+      document.getElementById("memo").value = "";
+    }
+
+    window.onload = renderTasks;
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen p-4">
+  <h1 class="text-3xl font-bold text-center mb-6">📝 과제 관리</h1>
+  <div class="max-w-2xl mx-auto">
+    <div class="grid grid-cols-1 gap-3 mb-6">
+      <input id="subject" type="text" placeholder="과목명" class="border rounded px-3 py-2" />
+      <input id="due" type="date" class="border rounded px-3 py-2" />
+      <select id="importance" class="border rounded px-3 py-2">
+        <option value="낮음">낮음</option>
+        <option value="보통" selected>보통</option>
+        <option value="높음">높음</option>
+      </select>
+      <textarea id="memo" placeholder="메모 (선택)" class="border rounded px-3 py-2"></textarea>
+      <button onclick="addTask()" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">과제 추가</button>
+    </div>
+    <div id="taskList"></div>
+  </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>과제 관리 및 학습 계획 추천</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">📝 과제 등록 & 학습 계획 추천</h1>
+
+    <form id="taskForm" class="space-y-4">
+      <div>
+        <label class="block font-medium">과제 이름</label>
+        <input type="text" id="taskName" required class="w-full border px-3 py-2 rounded" />
+      </div>
+
+      <div>
+        <label class="block font-medium">마감일</label>
+        <input type="date" id="dueDate" required class="w-full border px-3 py-2 rounded" />
+      </div>
+
+      <div>
+        <label class="block font-medium">예상 소요 시간 (시간)</label>
+        <input type="number" id="estimatedTime" required min="1" class="w-full border px-3 py-2 rounded" />
+      </div>
+
+      <div>
+        <label class="block font-medium">우선순위 (1~5, 낮을수록 중요)</label>
+        <input type="number" id="priority" required min="1" max="5" class="w-full border px-3 py-2 rounded" />
+      </div>
+
+      <div>
+        <label class="block font-medium">하루 공부 가능 시간 (시간)</label>
+        <input type="number" id="dailyHours" required min="1" class="w-full border px-3 py-2 rounded" />
+      </div>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">계획 생성</button>
+    </form>
+
+    <div id="planResult" class="mt-6"></div>
+  </div>
+
+  <script>
+    document.getElementById('taskForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const taskName = document.getElementById('taskName').value;
+      const dueDate = new Date(document.getElementById('dueDate').value);
+      const estimatedTime = parseFloat(document.getElementById('estimatedTime').value);
+      const priority = parseInt(document.getElementById('priority').value);
+      const dailyHours = parseFloat(document.getElementById('dailyHours').value);
+
+      const today = new Date();
+      const daysLeft = Math.ceil((dueDate - today) / (1000 * 60 * 60 * 24));
+      const sessions = Math.ceil(estimatedTime / dailyHours);
+      const actualDays = Math.min(daysLeft, sessions);
+      const dailyTaskTime = (estimatedTime / actualDays).toFixed(2);
+
+      let planHtml = `<h2 class="text-xl font-semibold mb-2">📅 ${taskName} 계획</h2>`;
+      planHtml += `<p>남은 날짜: ${daysLeft}일, 하루 공부량: <strong>${dailyTaskTime}시간</strong></p>`;
+      planHtml += `<ul class="mt-3 list-disc pl-6">`;
+
+      for (let i = 0; i < actualDays; i++) {
+        const day = new Date();
+        day.setDate(today.getDate() + i);
+        planHtml += `<li>${day.toLocaleDateString()} - ${dailyTaskTime}시간 집중</li>`;
+      }
+      planHtml += '</ul>';
+      planHtml += `<p class="mt-4">📌 우선순위: <strong>${priority}</strong> (${priority === 1 ? '매우 중요' : '중요도 ' + priority})</p>`;
+
+      document.getElementById('planResult').innerHTML = planHtml;
+    });
+  </script>
+</body>
+
+<A href="index.html"  target="blank">홈 화면</A>
+</html>

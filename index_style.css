@@ -1,0 +1,76 @@
+body { 
+    font-family: 'Nanum Gothic', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #f9f9f9; 
+}
+header { 
+    background: #8ec9ff; 
+    padding: 2rem 1rem; 
+    border-radius: 0 0 40px 40px; 
+    text-align: center; 
+}
+header h1 { 
+    font-size: 2.5rem; 
+    margin: 0; 
+    font-weight: bold; 
+    color: #fff; 
+}
+.container { 
+    max-width: 1200px; 
+    margin: 2rem auto;
+    padding: 1rem; 
+}
+.function-cards { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: 
+    space-between; 
+    gap: 20px; 
+}
+.card { 
+    flex: 1; 
+    min-width: 280px; 
+    padding: 20px; 
+    background: white;
+    border-radius: 16px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.card h3 { 
+    font-size: 1.25rem; 
+}
+.card-content { 
+    flex-grow: 1; 
+    width: 100%; 
+}
+.card button { 
+    margin-top: auto; 
+    padding: 8px 16px; 
+    border: none; 
+    background-color: #007bff; 
+    color: white; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+input[
+    type="text"
+], 
+select { 
+    margin: 4px; 
+    padding: 4px; 
+    font-size: 12px; 
+}
+table { 
+    margin-top: 8px; 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 11px; 
+}
+th, td { 
+    border: 1px solid #ccc; 
+    padding: 4px; 
+    text-align: center; 
+}
