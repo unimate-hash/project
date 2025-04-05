@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학점 계산기 - UniMate</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="grade.css">
+</head>
+<body class="grade-page">
+  <!-- 로고 텍스트 -->
+  <a href="../index/index.html" class="logo-link">Unimate</a>
+
+  <h1 class="grade-title">학점 계산기</h1>
+
+  <div class="grade-controls">
+    <button class="grade-button add-button" onclick="addRow()">과목 추가</button>
+    <button class="grade-button calc-button" onclick="calculateGPA()">평점 계산</button>
+  </div>
+
+  <div id="gradeContainer"></div>
+  <div id="result"></div>
+
+  <script src="grade.js"></script>
+</body>
+</html>
