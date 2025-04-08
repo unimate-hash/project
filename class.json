@@ -1,0 +1,847 @@
+[
+    {
+      "name": "501호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": false },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "502호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": false },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": false },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "503호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": false },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": false },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "504호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "505호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "506호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "507호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },    {
+      "name": "508호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "509호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "510호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "511호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "512호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    },
+    {
+      "name": "512호",
+      "schedule": {
+        "Monday": [
+          { "time": "09:00", "used": false },
+          { "time": "10:00", "used": false },
+          { "time": "11:00", "used": false },
+          { "time": "12:00", "used": false },
+          { "time": "13:00", "used": false },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Tuesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": true },
+          { "time": "17:00", "used": true },
+          { "time": "18:00", "used": true }
+        ],
+        "Wednesday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Thursday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ],
+        "Friday": [
+          { "time": "09:00", "used": true },
+          { "time": "10:00", "used": true },
+          { "time": "11:00", "used": true },
+          { "time": "12:00", "used": true },
+          { "time": "13:00", "used": true },
+          { "time": "14:00", "used": true },
+          { "time": "15:00", "used": true },
+          { "time": "16:00", "used": false },
+          { "time": "17:00", "used": false },
+          { "time": "18:00", "used": false }
+        ]
+      }
+    }
+  ]
+  
