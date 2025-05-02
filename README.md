@@ -17,4 +17,4 @@ https://unimate-hash.github.io/project/
 
 5/2
 - 빈 강의실 js 수정
-- 
+- 시간표 페이지 로그인을 해야 시간표를 저장하고 수정이 가능할텐데 너무 귀찮아질 거 같은데
