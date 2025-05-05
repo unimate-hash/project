@@ -93,6 +93,10 @@ body.grade-page {
     text-decoration: none;
     color: #4F46E5;
   }
-  
+  .grade-row label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
   
   
