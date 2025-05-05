@@ -71,4 +71,3 @@ function calculateGPA() {
     `;
     container.appendChild(row);
   }
-  
