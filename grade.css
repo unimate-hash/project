@@ -1,0 +1,100 @@
+body.grade-page {
+    background-color: #ffffff;
+    color: #1f2937;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2rem;
+    min-height: 100vh;
+  }
+  
+  h1.grade-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .grade-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .grade-row input,
+  .grade-row select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.95rem;
+  }
+  
+  .grade-row input {
+    flex: 1;
+  }
+  
+  .grade-row select {
+    width: 6rem;
+  }
+  
+  .grade-row button {
+    color: #ef4444;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .grade-row button:hover {
+    color: #b91c1c;
+  }
+  
+  .grade-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .grade-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 0.375rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .add-button {
+    background-color: #10b981;
+  }
+  
+  .add-button:hover {
+    background-color: #059669;
+  }
+  
+  .calc-button {
+    background-color: #3b82f6;
+  }
+  
+  .calc-button:hover {
+    background-color: #2563eb;
+  }
+  
+  #result {
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-align: center;
+  }
+  .logo-link {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #4F46E5;
+  }
+ .grade-row label {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
