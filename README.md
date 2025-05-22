@@ -18,3 +18,6 @@ https://unimate-hash.github.io/project/
 5/15
 - class.json 수정하기
 - 더 할 게 잇으려나
+
+5/22
+- timetable.js 수정하기
