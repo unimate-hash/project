@@ -21,3 +21,6 @@ https://unimate-hash.github.io/project/
 
 5/22
 - timetable.js 수정하기
+
+5/26
+- 졸업 학점 요건 계산할 때 전심 추가해야되나
