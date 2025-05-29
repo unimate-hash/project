@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시간표 - UniMate</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="timetable.css">
+</head>
+<body class="timetable-page">
+  <script>
+    if (!localStorage.getItem('loggedInUser')) {
+      alert('로그인이 필요합니다.');
+      location.href = 'login.html';
+    }
+  </script>
+
+  <a href="index.html" class="logo-link">UniMate</a>
+  <div id="userArea" style="position: absolute; top: 1rem; left: 1.5rem; font-weight: 500;"></div>
+  <script>
+    const user = localStorage.getItem("loggedInUser");
+    if (user) document.getElementById("userArea").textContent = `${user}님`;
+  </script>
+
+  <h1 class="timetable-title">시간표 편집기</h1>
+
+  <div class="form-container">
+    <div class="form-row">
+      <input type="text" id="courseName" class="form-input" placeholder="과목명">
+      <input type="text" id="classroom" class="form-input" placeholder="강의실">
+    </div>
+    <div class="form-row">
+      <select id="day" class="form-select">
+        <option value="월">월</option>
+        <option value="화">화</option>
+        <option value="수">수</option>
+        <option value="목">목</option>
+        <option value="금">금</option>
+        <option value="토">토</option>
+      </select>
+      <select id="startTime" class="form-select">
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        ...
+      </select>
+      <select id="endTime" class="form-select">
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        ...
+      </select>
+    </div>
+    <button class="submit-button" onclick="addToTimetable()">추가</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="timetable-table">
+      <thead>
+        <tr>
+          <th>시간</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th>토</th>
+        </tr>
+      </thead>
+      <tbody id="timetableBody"></tbody>
+    </table>
+  </div>
+
+  <div class="modal" id="editModal" style="display: none;">
+    <div class="modal-content">
+      <input type="text" id="editCourse" class="form-input" placeholder="과목명">
+      <input type="text" id="editRoom" class="form-input" placeholder="강의실">
+      <button class="submit-button" onclick="applyEdit()">수정</button>
+      <button class="delete-button" onclick="deleteCell()">삭제</button>
+      <button onclick="closeModal()">닫기</button>
+    </div>
+  </div>
+
+  <script src="timetable.js"></script>
+</body>
+</html>

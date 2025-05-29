@@ -1,0 +1,75 @@
+/* Reset & base */
+body, h1, button, span {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.main-page {
+  background-color: #ffffff;
+  color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem;
+}
+
+.main-logo {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  color: #1f2937;
+}
+
+/* ✅ 아이콘 영역: 4x2 그리드 구성 */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  max-width: 64rem;
+  margin-bottom: 5rem;
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 아이콘 동그라미 버튼 */
+.icon {
+  width: 5.5rem;
+  height: 5.5rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.icon:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.03);
+}
+
+/* 아이콘 라벨 */
+.icon-label {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+  text-align: center;
+}
+
+/* 하단 푸터 */
+.footer {
+  margin-top: 2rem;
+  font-size: 0.8125rem;
+  color: #c0c0c0;
+}

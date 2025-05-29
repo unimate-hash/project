@@ -1,0 +1,48 @@
+/* ✅ body를 assignment.html 스타일과 통일 */
+body.assignment-page {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* ✅ 출력 박스 디자인 유지 */
+#output {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#output p {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#output p::before {
+  content: "\25B8";
+  margin-right: 5px;
+  color: #007bff;
+}
+
+/* ✅ 버튼 디자인 통일 */
+#updateButton {
+  margin-top: 20px;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#updateButton:hover {
+  background-color: #2563eb;
+}

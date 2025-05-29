@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>로그인 - UniMate</title>
+  <style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f9fafb; }
+    input, button { padding: 0.5rem; margin: 0.5rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>로그인</h1>
+  <input id="loginId" type="text" placeholder="아이디 입력">
+  <input id="loginPw" type="password" placeholder="비밀번호 입력">
+  <button onclick="login()">로그인</button>
+  <p>계정이 없나요? <a href="signup.html">회원가입</a></p>
+
+  <script>
+    function login() {
+      const id = document.getElementById('loginId').value.trim();
+      const pw = document.getElementById('loginPw').value;
+
+      const users = JSON.parse(localStorage.getItem('users') || '{}');
+
+      if (!users[id]) return alert("존재하지 않는 아이디입니다.");
+      if (users[id] !== pw) return alert("비밀번호가 일치하지 않습니다.");
+
+      localStorage.setItem('loggedInUser', id);
+      location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

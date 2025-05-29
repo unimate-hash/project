@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입 - UniMate</title>
+  <style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #f9fafb; }
+    input, button { padding: 0.5rem; margin: 0.5rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>회원가입</h1>
+  <input id="signupId" type="text" placeholder="아이디 입력">
+  <input id="signupPw" type="password" placeholder="비밀번호 입력">
+  <button onclick="register()">가입하기</button>
+  <p>이미 계정이 있나요? <a href="login.html">로그인</a></p>
+
+  <script>
+    function register() {
+      const id = document.getElementById('signupId').value.trim();
+      const pw = document.getElementById('signupPw').value;
+
+      if (!id || !pw) return alert("아이디와 비밀번호를 입력해주세요.");
+
+      const users = JSON.parse(localStorage.getItem('users') || '{}');
+      if (users[id]) return alert("이미 존재하는 아이디입니다.");
+
+      users[id] = pw;
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert("회원가입이 완료되었습니다.");
+      location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
