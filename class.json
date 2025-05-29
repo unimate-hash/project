@@ -203,9 +203,9 @@
           { "time": "11:00", "used": false },
           { "time": "12:00", "used": false },
           { "time": "13:00", "used": false },
-          { "time": "14:00", "used": true },
-          { "time": "15:00", "used": true },
-          { "time": "16:00", "used": true },
+          { "time": "14:00", "used": false },
+          { "time": "15:00", "used": false },
+          { "time": "16:00", "used": false },
           { "time": "17:00", "used": false },
           { "time": "18:00", "used": false }
         ],
