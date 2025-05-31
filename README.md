@@ -25,3 +25,7 @@ https://unimate-hash.github.io/project/
 5/26
 - 졸업 학점 요건 계산할 때 전심 추가해야되나
 - 전자기학 강의실 513호임 참고해서 json 수정하기
+
+6/1
+- 전자기학 참고해서 json 수정완
+- defalutFriday 귀찮아서 안함
