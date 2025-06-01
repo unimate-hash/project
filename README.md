@@ -29,3 +29,4 @@ https://unimate-hash.github.io/project/
 6/1
 - 전자기학 참고해서 json 수정완
 - defalutFriday 귀찮아서 안함
+- topbar.js 만들었지만 링크 연결 안함 지워도 되지만 나중에 쓸수도 잇으니 둔다
