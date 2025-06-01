@@ -5,6 +5,15 @@
     font-family: sans-serif;
   }
   
+  .user-id {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937;
+  }
+
   .page-title {
     text-align: center;
     font-size: 1.875rem;

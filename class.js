@@ -51,24 +51,30 @@ function updateClassroomStatus(classrooms) {
 }
 
 function displayClassroomStatus(classrooms) {
-  const outputDiv = document.getElementById('output');
-  const currentTime = getCurrentTime();
-  const occupiedRooms = classrooms.filter(room => room.inUse).length;
-  const emptyRooms = classrooms.length - occupiedRooms;
-  
-  let html = `<p>현재 시각: ${currentTime}</p>`;
-  html += `<p>수업 중인 강의실: ${occupiedRooms}개</p>`;
-  html += `<p>비어있는 강의실: ${emptyRooms}개</p>`;
-  html += '<ul>';
-  
-  classrooms.forEach(classroom => {
-    const status = classroom.inUse ? '수업 중' : '비어 있음';
-    const statusClass = classroom.inUse ? 'occupied' : 'empty';
-    html += `<li class="${statusClass}">${classroom.name}: ${status}</li>`;
-  });
-  
-  html += '</ul>';
-  outputDiv.innerHTML = html;
+const outputDiv = document.getElementById('output');
+const now = new Date();
+const currentTime = getCurrentTime();
+const currentDay = getDayOfWeek();
+const month = now.getMonth() + 1;
+const date = now.getDate();
+const dateString = `${month}/${date}`;  // 예: 6/1
+
+const occupiedRooms = classrooms.filter(room => room.inUse).length;
+const emptyRooms = classrooms.length - occupiedRooms;
+
+let html = `<p>현재 시각: ${dateString} (${currentDay}) ${currentTime}</p>`;
+html += `<p>수업 중인 강의실: ${occupiedRooms}개</p>`;
+html += `<p>비어있는 강의실: ${emptyRooms}개</p>`;
+html += '<ul>';
+
+classrooms.forEach(classroom => {
+  const status = classroom.inUse ? '수업 중' : '비어 있음';
+  const statusClass = classroom.inUse ? 'occupied' : 'empty';
+  html += `<li class="${statusClass}">${classroom.name}: ${status}</li>`;
+});
+
+html += '</ul>';
+outputDiv.innerHTML = html;
 }
 
 async function updateStatus() {
@@ -86,3 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
   updateButton.addEventListener('click', updateStatus);
   updateStatus(); // 초기 상태 표시
 });
+
+if (!localStorage.getItem('loggedInUser') || !localStorage.getItem('loggedInName')) {
+  alert('로그인이 필요합니다.');
+  location.href = 'login.html';
+}
+
+const userId = localStorage.getItem("loggedInUser");
+const userName = localStorage.getItem("loggedInName");
+const userArea = document.getElementById("userArea");
+
+if (userId && userName && userArea) {
+  userArea.textContent = `${userId} ${userName}님 환영합니다!`;
+}

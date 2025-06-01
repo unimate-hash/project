@@ -1,11 +1,19 @@
 const userId = localStorage.getItem("loggedInUser");
-if (!userId) {
+const userName = localStorage.getItem("loggedInName");
+
+if (!userId || !userName) {
   alert("로그인이 필요합니다.");
   location.href = "login.html";
+} else {
+  const userInfo = document.getElementById("userInfo");
+  if (userInfo) {
+    userInfo.textContent = `${userId} ${userName}님 환영합니다!`;
+  }
 }
 
+// localStorage에서 해당 사용자 과제 불러오기
 const STORAGE_KEY = `assignments_${userId}`;
-let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+tasks = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
 
 function saveTasks() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
@@ -19,10 +27,10 @@ function renderTasks() {
 
   for (const task of sorted) {
     const div = document.createElement("div");
+
     let importanceClass =
-      task.importance === "높음" ? "high"
-      : task.importance === "보통" ? "medium"
-      : "low";
+      task.importance === "높음" ? "high" :
+      task.importance === "보통" ? "medium" : "low";
 
     let statusClass = task.done ? "done" : "";
 
@@ -80,6 +88,9 @@ function addTask() {
   saveTasks();
   renderTasks();
 
+  alert("과제가 추가되었습니다!");
+
+  // 입력 폼 초기화
   document.getElementById("subject").value = "";
   document.getElementById("due").value = "";
   document.getElementById("importance").value = "보통";

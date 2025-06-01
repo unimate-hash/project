@@ -6,6 +6,41 @@ body.grade-page {
   box-sizing: border-box;
 }
 
+.header-bar {
+  position: relative;
+  height: 3rem;
+  margin-bottom: 2rem;
+}
+
+.logo-link {
+  position: absolute;
+  top: 0;
+  right: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #4F46E5;
+}
+
+.user-id {
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.grade-columns {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.grade-column {
+  flex: 1;
+}
+
 .grade-title {
   font-size: 2rem;
   font-weight: bold;

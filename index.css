@@ -24,6 +24,56 @@ body.main-page {
   color: #1f2937;
 }
 
+/* 좌측 상단 표시용 top-bar */
+.top-bar {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem; /* ✅ 오른쪽 정렬 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end; /* ✅ 오른쪽 끝으로 정렬 */
+}
+
+
+.login-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: #4F46E5;
+  color: white;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #4338ca;
+}
+
+.logout-button {
+  background-color: #ef4444;
+}
+
+.logout-button:hover {
+  background-color: #dc2626;
+}
+
+.user-text {
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ✅ 기능 아이콘을 2줄 4칸으로 정렬 */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  max-width: 64rem;
+  margin-bottom: 5rem;
+}
+
 /* ✅ 아이콘 영역: 4x2 그리드 구성 */
 .icon-grid {
   display: grid;

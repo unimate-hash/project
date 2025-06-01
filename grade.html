@@ -4,61 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>학점 계산기 - UniMate</title>
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="grade.css" />
-  <style>
-    .header-bar {
-      position: relative;
-      height: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .logo-link {
-      position: absolute;
-      top: 0;
-      right: 1.5rem;
-      font-size: 2rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: #4F46E5;
-    }
-
-    .user-id {
-      position: absolute;
-      top: 0;
-      left: 1.5rem;
-      font-weight: 500;
-    }
-
-    .grade-columns {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .grade-column {
-      flex: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="../css/global.css"/>
+  <link rel="stylesheet" href="grade.css"/>
 </head>
 <body class="grade-page">
-  <script>
-    if (!localStorage.getItem("loggedInUser")) {
-      alert("로그인이 필요합니다.");
-      location.href = "login.html";
-    }
-  </script>
 
-  <div class="header-bar">
-    <div id="userArea" class="user-id"></div>
-    <a href="index.html" class="logo-link">UniMate</a>
-  </div>
 
-  <script>
-    const user = localStorage.getItem("loggedInUser");
-    if (user) document.getElementById("userArea").textContent = `${user}님`;
-  </script>
+<div class="header-bar">
+  <div id="userInfo" class="user-id"></div> 
+  <a href="index.html" class="logo-link">UniMate</a>
+</div>
 
   <h1 class="grade-title">학점 계산기</h1>
 

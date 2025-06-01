@@ -7,20 +7,11 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="assignment.css">
 </head>
+
 <body class="assignment-page">
-  <script>
-    if (!localStorage.getItem('loggedInUser')) {
-      alert('로그인이 필요합니다.');
-      location.href = 'login.html';
-    }
-  </script>
+  <div id="userInfo" class="user-id"></div>
 
   <a href="index.html" class="logo-link">UniMate</a>
-  <div id="userArea" style="position: absolute; top: 1rem; left: 1.5rem; font-weight: 500;"></div>
-  <script>
-    const user = localStorage.getItem("loggedInUser");
-    if (user) document.getElementById("userArea").textContent = `${user}님`;
-  </script>
 
   <h1 class="page-title">과제 관리</h1>
 

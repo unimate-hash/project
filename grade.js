@@ -1,11 +1,43 @@
 const userId = localStorage.getItem("loggedInUser");
-if (!userId) {
+const userName = localStorage.getItem("loggedInName");
+const userInfo = document.getElementById("userInfo");
+
+if (!userId || !userName) {
   alert("로그인이 필요합니다.");
   location.href = "login.html";
+} else if (userInfo) {
+  userInfo.textContent = `${userId} ${userName}님 환영합니다!`;
 }
 
+
 const STORAGE_KEY = `grades_${userId}`;
-let toggleSide = 0;
+let toggleSide = 0;  // ✅ 반드시 먼저 선언되어야 함
+
+function addRow(subject = '', grade = 'A+', credit = '', isMajor = false, semester = '1-1') {
+  const row = document.createElement('div');
+  row.className = 'grade-row';
+  const type = isMajor ? '전공' : '교양';
+
+  row.innerHTML = `
+    <input type="text" placeholder="과목명" value="${subject}">
+    <input type="number" class="credit" placeholder="학점" min="0" step="0.5" value="${credit}">
+    <select class="grade">
+      ${['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'].map(g => `<option value="${g}" ${g === grade ? 'selected' : ''}>${g}</option>`).join('')}
+    </select>
+    <select class="type">
+      <option value="전공" ${type === '전공' ? 'selected' : ''}>전공</option>
+      <option value="교양" ${type === '교양' ? 'selected' : ''}>교양</option>
+    </select>
+    <select class="semester">
+      ${['1-1','1-2','2-1','2-2','3-1','3-2'].map(s => `<option value="${s}" ${s === semester ? 'selected' : ''}>${s}학기</option>`).join('')}
+    </select>
+    <button onclick="this.parentElement.remove()">삭제</button>
+  `;
+
+  const column = toggleSide === 0 ? document.getElementById('leftColumn') : document.getElementById('rightColumn');
+  column.appendChild(row);
+  toggleSide = 1 - toggleSide;
+}
 
 function calculateGPA() {
   const rows = document.querySelectorAll('.grade-row');
@@ -91,32 +123,6 @@ function calculateGPA() {
       <tbody>${sortedSemesterRows}</tbody>
     </table>
   `;
-}
-
-function addRow(subject = '', grade = 'A+', credit = '', isMajor = false, semester = '1-1') {
-  const row = document.createElement('div');
-  row.className = 'grade-row';
-  const type = isMajor ? '전공' : '교양';
-
-  row.innerHTML = `
-    <input type="text" placeholder="과목명" value="${subject}">
-    <input type="number" class="credit" placeholder="학점" min="0" step="0.5" value="${credit}">
-    <select class="grade">
-      ${['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'].map(g => `<option value="${g}" ${g === grade ? 'selected' : ''}>${g}</option>`).join('')}
-    </select>
-    <select class="type">
-      <option value="전공" ${type === '전공' ? 'selected' : ''}>전공</option>
-      <option value="교양" ${type === '교양' ? 'selected' : ''}>교양</option>
-    </select>
-    <select class="semester">
-      ${['1-1','1-2','2-1','2-2','3-1','3-2'].map(s => `<option value="${s}" ${s === semester ? 'selected' : ''}>${s}학기</option>`).join('')}
-    </select>
-    <button onclick="this.parentElement.remove()">삭제</button>
-  `;
-
-  const column = toggleSide === 0 ? document.getElementById('leftColumn') : document.getElementById('rightColumn');
-  column.appendChild(row);
-  toggleSide = 1 - toggleSide;
 }
 
 window.onload = () => {

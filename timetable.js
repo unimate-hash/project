@@ -1,9 +1,15 @@
 const userId = localStorage.getItem("loggedInUser");
-if (!userId) {
+const userName = localStorage.getItem("loggedInName");
+
+if (!userId || !userName) {
   alert("로그인이 필요합니다.");
   location.href = "login.html";
+} else {
+  const userInfo = document.getElementById("userInfo");
+  if (userInfo) {
+    userInfo.textContent = `${userId} ${userName}님 환영합니다!`;
+  }
 }
-const STORAGE_KEY = `timetable_${userId}`;
 
 const COLORS = ["bg-color-1", "bg-color-2", "bg-color-3", "bg-color-4", "bg-color-5", "bg-color-6", "bg-color-7"];
 
@@ -14,6 +20,7 @@ const TIME_OPTIONS = Array.from({ length: 13 }, (_, i) => {
 });
 
 function generateEmptyTable() {
+  
   const tbody = document.getElementById("timetableBody");
   tbody.innerHTML = "";
 
@@ -36,8 +43,8 @@ function generateEmptyTable() {
   // ✅ 드롭다운 시간 옵션 적용
   const startTimeSelect = document.getElementById("startTime");
   const endTimeSelect = document.getElementById("endTime");
-  startTimeSelect.innerHTML = "";
-  endTimeSelect.innerHTML = "";
+  startTimeSelect.innerHTML = `<option value="" disabled selected>수업 시작 시각</option>`;
+  endTimeSelect.innerHTML = `<option value="" disabled selected>수업 종료 시각</option>`;
 
   TIME_OPTIONS.forEach(time => {
     const startOpt = document.createElement("option");
@@ -61,7 +68,7 @@ function addToTimetable() {
 
   const startIdx = TIME_OPTIONS.indexOf(start);
   const endIdx = TIME_OPTIONS.indexOf(end);
-  const dayMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 };
+  const dayMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5 };
   const colIdx = dayMap[day];
 
   if (startIdx === -1 || endIdx === -1 || colIdx === undefined || startIdx >= endIdx) {
@@ -134,3 +141,11 @@ function closeModal() {
   document.getElementById("editModal").style.display = "none";
   selectedCell = null;
 }
+
+if (!localStorage.getItem('loggedInUser')) {
+  alert('로그인이 필요합니다.');
+  location.href = 'login.html';
+}
+
+const user = localStorage.getItem("loggedInUser");
+if (user) document.getElementById("userArea").textContent = `${user}님`;

@@ -1,4 +1,4 @@
-/* ✅ body를 assignment.html 스타일과 통일 */
+/* body를 assignment.html 스타일과 통일 */
 body.assignment-page {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f9fafb;
@@ -9,7 +9,6 @@ body.assignment-page {
   position: relative;
 }
 
-/* ✅ 출력 박스 디자인 유지 */
 #output {
   width: 80%;
   margin: 20px auto;
@@ -18,7 +17,7 @@ body.assignment-page {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+} 
 
 #output p {
   margin-bottom: 10px;
@@ -31,7 +30,7 @@ body.assignment-page {
   color: #007bff;
 }
 
-/* ✅ 버튼 디자인 통일 */
+/* 버튼 디자인 통일 */
 #updateButton {
   margin-top: 20px;
   padding: 0.5rem 1rem;
@@ -41,8 +40,47 @@ body.assignment-page {
   border-radius: 0.375rem;
   cursor: pointer;
   font-size: 1rem;
-}
+} 
+
 
 #updateButton:hover {
   background-color: #2563eb;
+}
+
+.top-bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+
+
+
+.user-id {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.logo-link {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #4F46E5;
+}
+
+/* 본문 중앙 정렬 */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
