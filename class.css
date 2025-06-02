@@ -9,6 +9,7 @@ body.assignment-page {
   position: relative;
 }
 
+/* 출력 결과 박스 */
 #output {
   width: 80%;
   margin: 20px auto;
@@ -42,11 +43,11 @@ body.assignment-page {
   font-size: 1rem;
 } 
 
-
 #updateButton:hover {
   background-color: #2563eb;
 }
 
+/* 상단 바 스타일 */
 .top-bar {
   position: relative;
   display: flex;
@@ -55,8 +56,6 @@ body.assignment-page {
   padding: 1rem 2rem;
   margin-bottom: 2rem;
 }
-
-
 
 .user-id {
   font-weight: 500;
@@ -84,8 +83,12 @@ body.assignment-page {
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
+
+/* ✅ 카드 디자인 - 시각 강조 포함 */
 .room-card {
-  background-color: #f9fafb;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-left: 6px solid #10b981;
   border-radius: 12px;
   padding: 1.2rem 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -109,10 +112,12 @@ body.assignment-page {
   color: #4b5563;
   margin: 0;
 }
-.occupied {
-  border-left: 4px solid #ef4444; /* 빨간 테두리 */
+
+/* ✅ 상태별 색상 강조 */
+.room-card.occupied {
+  border-left-color: #ef4444;
 }
 
-.empty {
-  border-left: 4px solid #10b981; /* 초록 테두리 */
+.room-card.empty {
+  border-left-color: #10b981;
 }
