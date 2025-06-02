@@ -84,3 +84,28 @@ body.assignment-page {
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
+.room-card {
+  background-color: #f9fafb;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.room-card h3 {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.room-card p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin: 0;
+}
