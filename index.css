@@ -123,3 +123,29 @@ body.main-page {
   font-size: 0.8125rem;
   color: #c0c0c0;
 }
+/* ✅ 로고 강조 디자인 개선 */
+.main-logo {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #007bff; /* 파란색으로 변경 */
+  text-align: center;
+  margin-bottom: 4rem;
+  text-shadow: 2px 2px 8px rgba(0, 123, 255, 0.3); /* 그림자 효과 */
+  animation: logoFadeIn 1.2s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.main-logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
