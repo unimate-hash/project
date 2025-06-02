@@ -51,31 +51,39 @@ function updateClassroomStatus(classrooms) {
 }
 
 function displayClassroomStatus(classrooms) {
-const outputDiv = document.getElementById('output');
-const now = new Date();
-const currentTime = getCurrentTime();
-const currentDay = getDayOfWeek();
-const month = now.getMonth() + 1;
-const date = now.getDate();
-const dateString = `${month}/${date}`;  // 예: 6/1
+  const outputDiv = document.getElementById('output');
+  const now = new Date();
+  const currentTime = getCurrentTime();
+  const currentDay = getDayOfWeek();
+  const month = now.getMonth() + 1;
+  const date = now.getDate();
+  const dateString = `${month}/${date}`;  // 예: 6/2
 
-const occupiedRooms = classrooms.filter(room => room.inUse).length;
-const emptyRooms = classrooms.length - occupiedRooms;
+  const occupiedRooms = classrooms.filter(room => room.inUse).length;
+  const emptyRooms = classrooms.length - occupiedRooms;
 
-let html = `<p>현재 시각: ${dateString} (${currentDay}) ${currentTime}</p>`;
-html += `<p>수업 중인 강의실: ${occupiedRooms}개</p>`;
-html += `<p>비어있는 강의실: ${emptyRooms}개</p>`;
-html += '<ul>';
+  let html = `
+    <p>현재 시각: ${dateString} (${currentDay}) ${currentTime}</p>
+    <p>수업 중인 강의실: ${occupiedRooms}개</p>
+    <p>비어있는 강의실: ${emptyRooms}개</p>
+  `;
 
-classrooms.forEach(classroom => {
-  const status = classroom.inUse ? '수업 중' : '비어 있음';
-  const statusClass = classroom.inUse ? 'occupied' : 'empty';
-  html += `<li class="${statusClass}">${classroom.name}: ${status}</li>`;
-});
+  // ✅ 카드 형식으로 출력
+  classrooms.forEach(classroom => {
+    const status = classroom.inUse ? '수업 중' : '비어 있음';
+    const statusClass = classroom.inUse ? 'occupied' : 'empty';
+    
+    html += `
+      <div class="room-card ${statusClass}">
+        <h3>🏫 ${classroom.name}</h3>
+        <p>${status}</p>
+      </div>
+    `;
+  });
 
-html += '</ul>';
-outputDiv.innerHTML = html;
+  outputDiv.innerHTML = html;
 }
+
 
 async function updateStatus() {
   const classrooms = await fetchJsonData();
