@@ -9,7 +9,7 @@ body.assignment-page {
   position: relative;
 }
 
-/* 출력 박스 전체 */
+/* 출력 박스 전체 (텍스트 + 카드 포함) */
 #output {
   width: 80%;
   margin: 20px auto;
@@ -18,9 +18,10 @@ body.assignment-page {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: block; /* ✅ 중요: 플렉스 제거해서 세로 쌓임 유지 */
 }
 
-/* 텍스트 정보 영역 (시각/카운트) */
+/* 텍스트 정보 영역 (시각, 수업 중, 빈 강의실 수) */
 #status-info {
   margin-bottom: 1.5rem;
 }
@@ -36,7 +37,7 @@ body.assignment-page {
   color: #007bff;
 }
 
-/* 카드들을 가로로 정렬 */
+/* 카드 컨테이너만 가로 정렬 */
 #card-container {
   display: flex;
   flex-wrap: wrap;
@@ -44,7 +45,7 @@ body.assignment-page {
   justify-content: flex-start;
 }
 
-/* 버튼 디자인 */
+/* 버튼 스타일 */
 #updateButton {
   margin-top: 20px;
   padding: 0.5rem 1rem;
@@ -60,7 +61,7 @@ body.assignment-page {
   background-color: #2563eb;
 }
 
-/* 상단 바 스타일 */
+/* 상단 바 */
 .top-bar {
   position: relative;
   display: flex;
@@ -83,7 +84,7 @@ body.assignment-page {
   color: #4F46E5;
 }
 
-/* 본문 중앙 정렬 */
+/* 본문 정렬 */
 .content-wrapper {
   display: flex;
   flex-direction: column;
@@ -97,7 +98,7 @@ body.assignment-page {
   margin-bottom: 1.5rem;
 }
 
-/* 카드 스타일 */
+/* 카드 디자인 */
 .room-card {
   width: 250px;
   background-color: #ffffff;
@@ -106,7 +107,6 @@ body.assignment-page {
   border-radius: 10px;
   padding: 0.8rem 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  margin-bottom: 1rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -127,7 +127,7 @@ body.assignment-page {
   margin: 0;
 }
 
-/* 상태별 강조 색상 */
+/* 상태 강조 */
 .room-card.occupied {
   border-left-color: #ef4444;
 }
