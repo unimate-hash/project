@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>빈 강의실 안내</title>
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="./class.css" />
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="./class.css">
+
 </head>
 
-<body class="assignment-page">
-  <!-- 상단 바 -->
-  <div class="top-bar">
-    <div id="userArea" class="user-id"></div>
-    <a href="index.html" class="logo-link">UniMate</a>
-  </div>
+<body class="assignment-page">  
 
-  <!-- 본문 영역 -->
-  <div class="content-wrapper">
-    <h1 class="page-title">빈 강의실 안내</h1>
-    <button id="updateButton" class="form-button" style="margin-bottom: 2rem;">
-      강의실 상태 업데이트
-    </button>
-  </div>
+<!-- 상단 바: 좌측 아이디 / 우측 UniMate -->
+<div class="top-bar">
+  <div id="userArea" class="user-id"></div>
+  <a href="index.html" class="logo-link">UniMate</a>
+</div>
 
-  <!-- ✅ 카드들이 이 안에 동적으로 삽입됨 -->
-  <div id="output"></div>
+<!-- ✅ 본문 영역 중앙 정렬 -->
+<div class="content-wrapper">
+  <h1 class="page-title">빈 강의실 안내</h1>
+  <button id="updateButton" class="form-button" style="margin-bottom: 2rem;">강의실 상태 업데이트</button>
+</div>
 
-  <script src="./class.js"></script>
+<div id="output">
+  <div id="status-info"></div>       
+  <div id="card-container"></div>    
+</div>
+
+  
+
+
+
+<script src="./class.js"></script>
 </body>
 </html>
