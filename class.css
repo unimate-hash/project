@@ -7,16 +7,18 @@ body.assignment-page {
   box-sizing: border-box;
 }
 
+/* 전체 출력 박스 */
 #output {
-  width: 80%;
-  margin: 20px auto;
+  width: 90%;
+  margin: 0 auto;
   padding: 20px;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
+/* 텍스트 정보 영역 */
 #status-info {
   margin-bottom: 2rem;
 }
@@ -32,22 +34,21 @@ body.assignment-page {
   color: #007bff;
 }
 
+/* 카드 영역: grid로 좌→우 정렬 */
 #card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
 }
 
-/* 카드 */
+/* 카드 스타일 */
 .room-card {
-  width: 220px;
   background-color: #ffffff;
   border: 1px solid #d1d5db;
-  border-left: 5px solid #10b981;
+  border-left: 4px solid #10b981;
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -68,6 +69,7 @@ body.assignment-page {
   margin: 0;
 }
 
+/* 상태에 따라 테두리 색상 변경 */
 .room-card.occupied {
   border-left-color: #ef4444;
 }
@@ -76,6 +78,7 @@ body.assignment-page {
   border-left-color: #10b981;
 }
 
+/* 업데이트 버튼 */
 #updateButton {
   margin-top: 20px;
   padding: 0.5rem 1rem;
@@ -91,6 +94,7 @@ body.assignment-page {
   background-color: #2563eb;
 }
 
+/* 상단 바 */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -112,6 +116,7 @@ body.assignment-page {
   color: #4F46E5;
 }
 
+/* 본문 정렬 */
 .content-wrapper {
   display: flex;
   flex-direction: column;
