@@ -36,38 +36,39 @@ body.assignment-page {
   color: #007bff;
 }
 
-/* 카드 컨테이너: 좌→우로 배치 */
+/* 카드 컨테이너: 좌→우 정렬 + 줄바꿈 */
 #card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  justify-content: flex-start;
 }
 
 /* 각 강의실 카드 */
 .room-card {
-  box-sizing: border-box;
+  width: 200px;
   background-color: #ffffff;
   border: 1px solid #d1d5db;
   border-left: 4px solid #10b981;
   border-radius: 10px;
   padding: 0.8rem 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .room-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .room-card h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #1f2937;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .room-card p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #4b5563;
   margin: 0;
 }
