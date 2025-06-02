@@ -9,7 +9,7 @@ body.assignment-page {
   position: relative;
 }
 
-/* 출력 박스 전체 (텍스트 + 카드 포함) */
+/* 출력 박스 전체 */
 #output {
   width: 80%;
   margin: 20px auto;
@@ -18,12 +18,11 @@ body.assignment-page {
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: block; /* ✅ 중요: 플렉스 제거해서 세로 쌓임 유지 */
 }
 
-/* 텍스트 정보 영역 (시각, 수업 중, 빈 강의실 수) */
+/* 텍스트 정보 영역 */
 #status-info {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 #status-info p {
@@ -37,7 +36,7 @@ body.assignment-page {
   color: #007bff;
 }
 
-/* 카드 컨테이너만 가로 정렬 */
+/* 카드 컨테이너 (가로 정렬) */
 #card-container {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +44,46 @@ body.assignment-page {
   justify-content: flex-start;
 }
 
-/* 버튼 스타일 */
+/* 각 강의실 카드 */
+.room-card {
+  width: 250px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-left: 4px solid #10b981;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.room-card h3 {
+  font-size: 1.1rem;
+  color: #1f2937;
+  margin-bottom: 0.4rem;
+}
+
+.room-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* 사용 여부 강조 색상 */
+.room-card.occupied {
+  border-left-color: #ef4444;
+}
+
+.room-card.empty {
+  border-left-color: #10b981;
+}
+
+/* 버튼 디자인 */
 #updateButton {
   margin-top: 20px;
   padding: 0.5rem 1rem;
@@ -96,42 +134,4 @@ body.assignment-page {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-}
-
-/* 카드 디자인 */
-.room-card {
-  width: 250px;
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-left: 4px solid #10b981;
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.room-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-}
-
-.room-card h3 {
-  font-size: 1.1rem;
-  color: #1f2937;
-  margin-bottom: 0.4rem;
-}
-
-.room-card p {
-  font-size: 0.95rem;
-  color: #4b5563;
-  margin: 0;
-}
-
-/* 상태 강조 */
-.room-card.occupied {
-  border-left-color: #ef4444;
-}
-
-.room-card.empty {
-  border-left-color: #10b981;
 }
