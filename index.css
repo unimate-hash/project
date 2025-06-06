@@ -1,151 +1,75 @@
-/* Reset & base */
-body, h1, button, span {
+body.main-page {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
 }
 
-body.main-page {
-  background-color: #ffffff;
-  color: #1f2937;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Segoe UI', sans-serif;
+.main-logo {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 2rem 0 1rem;
+  color: #2563eb;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* PC에서 4개씩 한 줄 */
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
   padding: 2rem;
 }
 
-.main-logo {
-  font-size: 3rem;
-  font-weight: 600;
-  margin-bottom: 4rem;
-  color: #1f2937;
-}
-
-/* 좌측 상단 표시용 top-bar */
-.top-bar {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem; /* ✅ 오른쪽 정렬 */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  justify-content: flex-end; /* ✅ 오른쪽 끝으로 정렬 */
-}
-
-
-.login-button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 0.375rem;
-  background-color: #4F46E5;
-  color: white;
-  cursor: pointer;
-}
-
-.login-button:hover {
-  background-color: #4338ca;
-}
-
-.logout-button {
-  background-color: #ef4444;
-}
-
-.logout-button:hover {
-  background-color: #dc2626;
-}
-
-.user-text {
-  margin-right: 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-/* ✅ 기능 아이콘을 2줄 4칸으로 정렬 */
-.icon-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  max-width: 64rem;
-  margin-bottom: 5rem;
-}
-
-/* ✅ 아이콘 영역: 4x2 그리드 구성 */
-.icon-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
-  max-width: 64rem;
-  margin-bottom: 5rem;
+@media (max-width: 768px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr); /* 태블릿 이하일 땐 2개씩 */
+  }
 }
 
 .icon-button {
+  height: 160px;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-/* 아이콘 동그라미 버튼 */
-.icon {
-  width: 5.5rem;
-  height: 5.5rem;
-  font-size: 2rem;
-  border-radius: 50%;
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.icon-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.icon {
+  font-size: 2.5rem;
+  background: none;
+  border: none;
   cursor: pointer;
+  margin-bottom: 0.5rem;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
 }
 
-.icon:hover {
-  background-color: #f3f4f6;
-  transform: scale(1.03);
-}
-
-/* 아이콘 라벨 */
 .icon-label {
-  margin-top: 0.75rem;
-  font-size: 0.875rem;
-  color: #4b5563;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
   text-align: center;
+  white-space: nowrap;
 }
 
-/* 하단 푸터 */
 .footer {
-  margin-top: 2rem;
-  font-size: 0.8125rem;
-  color: #c0c0c0;
-}
-
-.main-logo {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #007bff; /* 파란색으로 변경 */
   text-align: center;
-  margin-bottom: 4rem;
-  text-shadow: 2px 2px 8px rgba(0, 123, 255, 0.3); /* 그림자 효과 */
-  animation: logoFadeIn 1.2s ease-out;
-  transition: transform 0.3s ease;
-}
-
-.main-logo:hover {
-  transform: scale(1.05);
-}
-
-@keyframes logoFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 3rem;
 }
