@@ -8,11 +8,13 @@ body.timetable-page {
   justify-content: center;
 }
 
-.container {
+.main-container {
   display: flex;
   gap: 2rem; /* 시간표 편집기와 시간표 간 2cm 여백 */
   width: 100%;
   max-width: 1200px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .editor-panel {
@@ -65,7 +67,7 @@ body.timetable-page {
   background-color: #2563eb;
 }
 
-.table-panel {
+.table-wrapper {
   flex: 0.9; /* 약 20% 축소 */
   overflow-x: auto;
 }
@@ -133,23 +135,3 @@ body.timetable-page {
 .bg-color-5 { background-color: #fce7f3; }
 .bg-color-6 { background-color: #ede9fe; }
 .bg-color-7 { background-color: #ccfbf1; }
-.delete-button {
-  background-color: #f87171;
-  color: white;
-  border: none;
-  padding: 0.4rem 0.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.delete-button:hover {
-  background-color: #ef4444;
-}
-
-.time-selects {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
