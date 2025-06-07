@@ -84,33 +84,43 @@ body.timetable-page {
   overflow-x: auto;
 }
 
+/* ✅ 시간표 테이블 레이아웃 고정 (크기 축소) */
 .timetable-table {
   border-collapse: collapse;
+  font-size: 0.7rem;  /* 원래 0.875rem → 줄임 */
   table-layout: fixed;
-  min-width: 720px;
-  background-color: #ffffff;
+  min-width: 600px;   /* 원래 720px → 약 20% 감소 */
+  border: 2px solid #6b7280;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: white;
 }
 
+/* ✅ 셀 크기 조정 */
 .timetable-table th,
 .timetable-table td {
-  width: 100px;
-  height: 60px;
+  width: 85px;           /* 원래 100px */
+  max-width: 85px;
+  height: 48px;          /* 원래 60px */
   border: 1px solid #9ca3af;
   text-align: center;
   vertical-align: middle;
   word-break: break-word;
+  overflow-wrap: break-word;
 }
 
+/* ✅ 클래스 셀 내부 텍스트 조정 */
 .class-cell {
-  font-size: 0.8rem;
-  background-color: #f0f9ff;
+  font-size: 0.7rem;        /* 원래 0.8rem */
+  line-height: 1.2;
+  padding: 0.25rem;
   border-radius: 0.25rem;
-  padding: 0.3rem;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+  background-color: #f0f9ff;
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .room {
-  font-size: 0.75rem;
+  font-size: 0.65rem;       /* 약간 더 작게 */
   color: #4b5563;
 }
