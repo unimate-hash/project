@@ -22,13 +22,13 @@ body.grade-page {
   color: #4F46E5;
   font-family: 'Segoe UI', sans-serif;
 
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);  /* 그림자 효과 */
-  transition: transform 0.3s ease, text-shadow 0.3s ease;  /* 애니메이션 전환 */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);  
+  transition: transform 0.3s ease, text-shadow 0.3s ease;  
 }
 
 .logo-link:hover {
-  transform: scale(1.03);  /* 마우스 올렸을 때 확대 */
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25); /* 마우스 올렸을 때 그림자 강조 */
+  transform: scale(1.03);  
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25); 
 }
 
 
@@ -170,3 +170,4 @@ body.grade-page {
   color: #111827;
   transform: scale(1.03);
 }
+
