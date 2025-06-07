@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="timetable.css" />
 </head>
 <body class="timetable-page">
-  <div id="userInfo" class="user-id"></div>
-  <a href="index.html" class="logo-link">UniMate</a>
+  <!-- 우측 상단 로고 -->
+  <header class="header">
+    <a href="index.html" class="logo-link">UniMate</a>
+  </header>
 
   <div class="container">
     <!-- 왼쪽: 시간표 편집기 -->
@@ -53,7 +55,7 @@
             <select id="endTime" class="form-select styled-input"></select>
           </div>
         </div>
-        <button class="submit-button" onclick="addToTimetable()">추가</button>
+        <button class="submit-button">추가</button>
       </div>
     </div>
 
@@ -75,18 +77,5 @@
       </table>
     </div>
   </div>
-
-  <!-- 수정 모달 -->
-  <div class="modal" id="editModal" style="display: none;">
-    <div class="modal-content">
-      <input type="text" id="editCourse" class="form-input styled-input" placeholder="과목명" />
-      <input type="text" id="editRoom" class="form-input styled-input" placeholder="강의실" />
-      <button class="submit-button" onclick="applyEdit()">수정</button>
-      <button class="delete-button" onclick="deleteCell()">삭제</button>
-      <button onclick="closeModal()">닫기</button>
-    </div>
-  </div>
-
-  <script src="timetable.js"></script>
 </body>
 </html>
