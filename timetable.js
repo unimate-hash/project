@@ -1,107 +1,72 @@
-const userId = localStorage.getItem("loggedInUser");
-const userName = localStorage.getItem("loggedInName");
+const STORAGE_KEY = "timetable_data";
 
-if (!userId || !userName) {
-  alert("로그인이 필요합니다.");
-  location.href = "login.html";
-} else {
-  const userInfo = document.getElementById("userInfo");
-  if (userInfo) {
-    userInfo.textContent = `${userId} ${userName}님 환영합니다!`;
-  }
-}
+const TIME_OPTIONS = Array.from({ length: 13 }, (_, i) => {
+  const hour = i + 9;
+  return `${hour.toString().padStart(2, '0')}:00`;
+});
 
 const COLORS = ["bg-color-1", "bg-color-2", "bg-color-3", "bg-color-4", "bg-color-5", "bg-color-6", "bg-color-7"];
 
-// ✅ 시간 목록 생성 (09:00 ~ 20:00)
-const TIME_OPTIONS = Array.from({ length: 13 }, (_, i) => {
-  const hour = (i + 9).toString().padStart(2, '0');
-  return `${hour}:00`;
-});
-
 function generateEmptyTable() {
-  
   const tbody = document.getElementById("timetableBody");
   tbody.innerHTML = "";
 
   for (let time of TIME_OPTIONS) {
     const tr = document.createElement("tr");
-    const timeCell = document.createElement("td");
-    timeCell.textContent = time;
-    timeCell.className = "time-cell";
-    tr.appendChild(timeCell);
-
-    for (let i = 0; i < 6; i++) {
-      const td = document.createElement("td");
-      td.className = "timetable-cell";
-      tr.appendChild(td);
-    }
-
+    tr.innerHTML = `<td>${time}</td>` + "<td></td>".repeat(6);
     tbody.appendChild(tr);
   }
 
-  // ✅ 드롭다운 시간 옵션 적용
-  const startTimeSelect = document.getElementById("startTime");
-  const endTimeSelect = document.getElementById("endTime");
-  startTimeSelect.innerHTML = `<option value="" disabled selected>수업 시작 시각</option>`;
-  endTimeSelect.innerHTML = `<option value="" disabled selected>수업 종료 시각</option>`;
-
-  TIME_OPTIONS.forEach(time => {
-    const startOpt = document.createElement("option");
-    startOpt.value = time;
-    startOpt.textContent = time;
-    startTimeSelect.appendChild(startOpt);
-
-    const endOpt = document.createElement("option");
-    endOpt.value = time;
-    endOpt.textContent = time;
-    endTimeSelect.appendChild(endOpt);
+  const start = document.getElementById("startTime");
+  const end = document.getElementById("endTime");
+  TIME_OPTIONS.forEach(t => {
+    const o1 = new Option(t, t);
+    const o2 = new Option(t, t);
+    start.add(o1);
+    end.add(o2);
   });
 }
 
 function addToTimetable() {
   const course = document.getElementById("courseName").value;
   const room = document.getElementById("classroom").value;
+  const custom = document.getElementById("customRoom").value;
   const start = document.getElementById("startTime").value;
   const end = document.getElementById("endTime").value;
   const day = document.getElementById("day").value;
 
+  const useRoom = room === "직접 입력" ? custom : room;
+  const dayMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 };
   const startIdx = TIME_OPTIONS.indexOf(start);
   const endIdx = TIME_OPTIONS.indexOf(end);
-  const dayMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5 };
-  const colIdx = dayMap[day];
+  const col = dayMap[day];
 
-  if (startIdx === -1 || endIdx === -1 || colIdx === undefined || startIdx >= endIdx) {
-    alert("유효한 입력을 확인해주세요");
+  if (!course || !start || !end || !day || startIdx >= endIdx) {
+    alert("입력을 다시 확인해주세요");
     return;
   }
 
-  const color = COLORS[Math.floor(Math.random() * COLORS.length)];
   const rows = document.querySelectorAll("#timetableBody tr");
+  const color = COLORS[Math.floor(Math.random() * COLORS.length)];
 
   for (let i = startIdx; i < endIdx; i++) {
-    const cell = rows[i].children[colIdx];
-    cell.innerHTML = `
-      <div class="class-cell ${color}">
-        ${course}<br><span class="room">${room}</span>
-      </div>`;
+    const td = rows[i].children[col];
+    td.innerHTML = `<div class="class-cell ${color}">${course}<br><span class="room">${useRoom}</span></div>`;
   }
 
   saveToLocalStorage();
 }
 
 function saveToLocalStorage() {
-  const tbody = document.getElementById("timetableBody");
-  localStorage.setItem(STORAGE_KEY, tbody.innerHTML);
+  localStorage.setItem(STORAGE_KEY, document.getElementById("timetableBody").innerHTML);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  generateEmptyTable();
+function loadFromLocalStorage() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     document.getElementById("timetableBody").innerHTML = saved;
   }
-});
+}
 
 let selectedCell = null;
 
@@ -109,10 +74,8 @@ document.addEventListener("click", function (e) {
   const cell = e.target.closest("td");
   if (cell && cell.querySelector(".class-cell")) {
     selectedCell = cell;
-    const courseText = cell.querySelector(".class-cell")?.childNodes[0]?.textContent?.trim() || "";
-    const roomText = cell.querySelector(".room")?.textContent?.trim() || "";
-    document.getElementById("editCourse").value = courseText;
-    document.getElementById("editRoom").value = roomText;
+    document.getElementById("editCourse").value = cell.querySelector(".class-cell").childNodes[0]?.textContent?.trim() || "";
+    document.getElementById("editRoom").value = cell.querySelector(".room")?.textContent?.trim() || "";
     document.getElementById("editModal").style.display = "flex";
   }
 });
@@ -121,11 +84,7 @@ function applyEdit() {
   if (!selectedCell) return;
   const course = document.getElementById("editCourse").value;
   const room = document.getElementById("editRoom").value;
-  const classDiv = document.createElement("div");
-  classDiv.className = "class-cell";
-  classDiv.innerHTML = `${course}<br><span class="room">${room}</span>`;
-  selectedCell.innerHTML = "";
-  selectedCell.appendChild(classDiv);
+  selectedCell.innerHTML = `<div class="class-cell">${course}<br><span class="room">${room}</span></div>`;
   closeModal();
   saveToLocalStorage();
 }
@@ -142,10 +101,15 @@ function closeModal() {
   selectedCell = null;
 }
 
-if (!localStorage.getItem('loggedInUser')) {
-  alert('로그인이 필요합니다.');
-  location.href = 'login.html';
-}
-
-const user = localStorage.getItem("loggedInUser");
-if (user) document.getElementById("userArea").textContent = `${user}님`;
+document.addEventListener("DOMContentLoaded", () => {
+  generateEmptyTable();
+  loadFromLocalStorage();
+  const uid = localStorage.getItem("loggedInUser");
+  const uname = localStorage.getItem("loggedInName");
+  if (!uid || !uname) {
+    alert("로그인이 필요합니다.");
+    location.href = "login.html";
+  } else {
+    document.getElementById("userInfo").textContent = `${uid} ${uname}님 환영합니다!`;
+  }
+});
