@@ -1,20 +1,55 @@
+/* 로그인 상단 바 공통 */
 .top-bar {
   position: absolute;
   top: 1.5rem;
   left: 2rem;
   font-family: 'Segoe UI', sans-serif;
   border-radius: 0.75rem;
+  top: 1.5rem;
+  left: 2rem;
+  font-family: 'Segoe UI',sans-serif;
+  border-radius: 0.75rem;
   z-index: 10;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
+
+/* 로그인 필요 상태 */
 .top-bar.login-needed {
-  font-size: 1.4rem;
-  color: #dc2626;
-  background-color: #fff1f2;
-  border: 2px solid #dc2626;
-  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #991b1b;
+  background-color: #fef2f2;
+  border: 1.5px solid #dc2626;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
 }
+
+/* 로그인 버튼 */
+.login-button {
+  background-color: #dc2626;
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0.45rem 1rem;
+  margin-left: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #b91c1c;
+}
+
+/* 로그인 상태 표시 */
 .top-bar.logged-in {
   font-size: 1.1rem;
   color: #111111;
@@ -23,7 +58,7 @@
   border: none;
 }
 
-
+/* 본문 */
 body.main-page {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -41,7 +76,7 @@ body.main-page {
 
 .icon-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* PC에서 4개씩 한 줄 */
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   max-width: 960px;
   margin: 0 auto;
@@ -50,7 +85,7 @@ body.main-page {
 
 @media (max-width: 768px) {
   .icon-grid {
-    grid-template-columns: repeat(2, 1fr); /* 태블릿 이하일 땐 2개씩 */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
