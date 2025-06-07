@@ -2,17 +2,19 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>시간표 - UniMate</title>
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="timetable.css">
 </head>
+
 <body class="timetable-page">
   <div id="userInfo" class="user-id"></div>
   <a href="index.html" class="logo-link">UniMate</a>
-  <div class="main-wrapper">
-    <!-- 좌측: 편집기 -->
+  <h1 class="timetable-title">시간표 편집기</h1>
+
+  <div class="editor-layout">
     <div class="form-container">
-      <h1 class="timetable-title">시간표 편집기</h1>
       <div class="form-row">
         <input type="text" id="courseName" class="form-input" placeholder="과목명">
         <select id="classroom" class="form-select">
@@ -27,7 +29,7 @@
         </select>
       </div>
       <div class="form-row">
-        <input type="text" id="customRoom" class="form-input" placeholder="직접 입력 강의실">
+        <input type="text" id="customRoom" class="form-input" placeholder="직접 입력 강의실 (선택 시 사용)">
       </div>
       <div class="form-row">
         <select id="day" class="form-select">
@@ -44,7 +46,6 @@
       <button class="submit-button" onclick="addToTimetable()">추가</button>
     </div>
 
-    <!-- 우측: 시간표 -->
     <div class="table-wrapper">
       <table class="timetable-table">
         <thead>
@@ -63,7 +64,6 @@
     </div>
   </div>
 
-  <!-- 수정 모달 -->
   <div class="modal" id="editModal" style="display: none;">
     <div class="modal-content">
       <input type="text" id="editCourse" class="form-input" placeholder="과목명">
