@@ -1,11 +1,19 @@
-const STORAGE_KEY = "timetable_data";
+const userId = localStorage.getItem("loggedInUser");
+const userName = localStorage.getItem("loggedInName");
 
-const TIME_OPTIONS = Array.from({ length: 13 }, (_, i) => {
-  const hour = i + 9;
-  return `${hour.toString().padStart(2, '0')}:00`;
-});
+if (!userId || !userName) {
+  alert("로그인이 필요합니다.");
+  location.href = "login.html";
+} else {
+  const userInfo = document.getElementById("userInfo");
+  if (userInfo) {
+    userInfo.textContent = `${userId} ${userName}님 환영합니다!`;
+  }
+}
 
 const COLORS = ["bg-color-1", "bg-color-2", "bg-color-3", "bg-color-4", "bg-color-5", "bg-color-6", "bg-color-7"];
+const TIME_OPTIONS = Array.from({ length: 13 }, (_, i) => `${(i + 9).toString().padStart(2, '0')}:00`);
+const STORAGE_KEY = "timetableData";
 
 function generateEmptyTable() {
   const tbody = document.getElementById("timetableBody");
@@ -13,60 +21,73 @@ function generateEmptyTable() {
 
   for (let time of TIME_OPTIONS) {
     const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${time}</td>` + "<td></td>".repeat(6);
+    const timeCell = document.createElement("td");
+    timeCell.textContent = time;
+    tr.appendChild(timeCell);
+
+    for (let i = 0; i < 6; i++) {
+      const td = document.createElement("td");
+      td.className = "timetable-cell";
+      tr.appendChild(td);
+    }
     tbody.appendChild(tr);
   }
 
-  const start = document.getElementById("startTime");
-  const end = document.getElementById("endTime");
-  TIME_OPTIONS.forEach(t => {
-    const o1 = new Option(t, t);
-    const o2 = new Option(t, t);
-    start.add(o1);
-    end.add(o2);
+  const startTimeSelect = document.getElementById("startTime");
+  const endTimeSelect = document.getElementById("endTime");
+  startTimeSelect.innerHTML = `<option value="" disabled selected>수업 시작 시각</option>`;
+  endTimeSelect.innerHTML = `<option value="" disabled selected>수업 종료 시각</option>`;
+
+  TIME_OPTIONS.forEach(time => {
+    const opt1 = new Option(time, time);
+    const opt2 = new Option(time, time);
+    startTimeSelect.appendChild(opt1);
+    endTimeSelect.appendChild(opt2);
   });
 }
 
 function addToTimetable() {
   const course = document.getElementById("courseName").value;
   const room = document.getElementById("classroom").value;
-  const custom = document.getElementById("customRoom").value;
   const start = document.getElementById("startTime").value;
   const end = document.getElementById("endTime").value;
   const day = document.getElementById("day").value;
 
-  const useRoom = room === "직접 입력" ? custom : room;
-  const dayMap = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 };
   const startIdx = TIME_OPTIONS.indexOf(start);
   const endIdx = TIME_OPTIONS.indexOf(end);
-  const col = dayMap[day];
+  const colIdx = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 }[day];
 
-  if (!course || !start || !end || !day || startIdx >= endIdx) {
-    alert("입력을 다시 확인해주세요");
+  if (startIdx === -1 || endIdx === -1 || colIdx === undefined || startIdx >= endIdx) {
+    alert("유효한 입력을 확인해주세요");
     return;
   }
 
-  const rows = document.querySelectorAll("#timetableBody tr");
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+  const rows = document.querySelectorAll("#timetableBody tr");
 
   for (let i = startIdx; i < endIdx; i++) {
-    const td = rows[i].children[col];
-    td.innerHTML = `<div class="class-cell ${color}">${course}<br><span class="room">${useRoom}</span></div>`;
+    const cell = rows[i].children[colIdx];
+    cell.innerHTML = `
+      <div class="class-cell ${color}">
+        ${course}<br><span class="room">${room}</span>
+      </div>`;
   }
 
   saveToLocalStorage();
 }
 
 function saveToLocalStorage() {
-  localStorage.setItem(STORAGE_KEY, document.getElementById("timetableBody").innerHTML);
+  const tbody = document.getElementById("timetableBody");
+  localStorage.setItem(STORAGE_KEY, tbody.innerHTML);
 }
 
-function loadFromLocalStorage() {
+document.addEventListener("DOMContentLoaded", () => {
+  generateEmptyTable();
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     document.getElementById("timetableBody").innerHTML = saved;
   }
-}
+});
 
 let selectedCell = null;
 
@@ -74,8 +95,10 @@ document.addEventListener("click", function (e) {
   const cell = e.target.closest("td");
   if (cell && cell.querySelector(".class-cell")) {
     selectedCell = cell;
-    document.getElementById("editCourse").value = cell.querySelector(".class-cell").childNodes[0]?.textContent?.trim() || "";
-    document.getElementById("editRoom").value = cell.querySelector(".room")?.textContent?.trim() || "";
+    const courseText = cell.querySelector(".class-cell")?.childNodes[0]?.textContent?.trim() || "";
+    const roomText = cell.querySelector(".room")?.textContent?.trim() || "";
+    document.getElementById("editCourse").value = courseText;
+    document.getElementById("editRoom").value = roomText;
     document.getElementById("editModal").style.display = "flex";
   }
 });
@@ -84,7 +107,11 @@ function applyEdit() {
   if (!selectedCell) return;
   const course = document.getElementById("editCourse").value;
   const room = document.getElementById("editRoom").value;
-  selectedCell.innerHTML = `<div class="class-cell">${course}<br><span class="room">${room}</span></div>`;
+  const classDiv = document.createElement("div");
+  classDiv.className = "class-cell";
+  classDiv.innerHTML = `${course}<br><span class="room">${room}</span>`;
+  selectedCell.innerHTML = "";
+  selectedCell.appendChild(classDiv);
   closeModal();
   saveToLocalStorage();
 }
@@ -100,16 +127,3 @@ function closeModal() {
   document.getElementById("editModal").style.display = "none";
   selectedCell = null;
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  generateEmptyTable();
-  loadFromLocalStorage();
-  const uid = localStorage.getItem("loggedInUser");
-  const uname = localStorage.getItem("loggedInName");
-  if (!uid || !uname) {
-    alert("로그인이 필요합니다.");
-    location.href = "login.html";
-  } else {
-    document.getElementById("userInfo").textContent = `${uid} ${uname}님 환영합니다!`;
-  }
-});
