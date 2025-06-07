@@ -9,9 +9,25 @@ if (!userId || !userName) {
   userInfo.textContent = `${userId} ${userName}님 환영합니다!`;
 }
 
-
 const STORAGE_KEY = `grades_${userId}`;
 let toggleSide = 0;  // ✅ 반드시 먼저 선언되어야 함
+
+function saveCurrentRowsToStorage() {
+  const rows = document.querySelectorAll('.grade-row');
+  const savedRows = [];
+
+  rows.forEach(row => {
+    const subject = row.querySelector('input[type=text]').value;
+    const grade = row.querySelector('.grade').value;
+    const credit = parseFloat(row.querySelector('.credit').value);
+    const isMajor = row.querySelector('.type').value === "전공";
+    const semester = row.querySelector('.semester').value;
+
+    savedRows.push({ subject, grade, credit, isMajor, semester });
+  });
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(savedRows));
+}
 
 function addRow(subject = '', grade = 'A+', credit = '', isMajor = false, semester = '1-1') {
   const row = document.createElement('div');
@@ -19,24 +35,25 @@ function addRow(subject = '', grade = 'A+', credit = '', isMajor = false, semest
   const type = isMajor ? '전공' : '교양';
 
   row.innerHTML = `
-    <input type="text" placeholder="과목명" value="${subject}">
-    <input type="number" class="credit" placeholder="학점" min="0" step="0.5" value="${credit}">
-    <select class="grade">
+    <input type="text" placeholder="과목명" value="${subject}" oninput="saveCurrentRowsToStorage()">
+    <input type="number" class="credit" placeholder="학점" min="0" step="0.5" value="${credit}" oninput="saveCurrentRowsToStorage()">
+    <select class="grade" onchange="saveCurrentRowsToStorage()">
       ${['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'].map(g => `<option value="${g}" ${g === grade ? 'selected' : ''}>${g}</option>`).join('')}
     </select>
-    <select class="type">
+    <select class="type" onchange="saveCurrentRowsToStorage()">
       <option value="전공" ${type === '전공' ? 'selected' : ''}>전공</option>
       <option value="교양" ${type === '교양' ? 'selected' : ''}>교양</option>
     </select>
-    <select class="semester">
+    <select class="semester" onchange="saveCurrentRowsToStorage()">
       ${['1-1','1-2','2-1','2-2','3-1','3-2'].map(s => `<option value="${s}" ${s === semester ? 'selected' : ''}>${s}학기</option>`).join('')}
     </select>
-    <button onclick="this.parentElement.remove()">삭제</button>
+    <button onclick="this.parentElement.remove(); saveCurrentRowsToStorage();">삭제</button>
   `;
 
   const column = toggleSide === 0 ? document.getElementById('leftColumn') : document.getElementById('rightColumn');
   column.appendChild(row);
   toggleSide = 1 - toggleSide;
+  saveCurrentRowsToStorage();
 }
 
 function calculateGPA() {
