@@ -10,7 +10,33 @@ if (!userId || !userName) {
 }
 
 const STORAGE_KEY = `grades_${userId}`;
-let toggleSide = 0;  // ✅ 반드시 먼저 선언되어야 함
+let toggleSide = 0; // ✅ 반드시 먼저 선언되어야 함
+
+function addRow(subject = '', grade = 'A+', credit = '', isMajor = false, semester = '1-1') {
+  const row = document.createElement('div');
+  row.className = 'grade-row';
+  const type = isMajor ? '전공' : '교양';
+
+  row.innerHTML = `
+    <input type="text" placeholder="과목명" value="${subject}">
+    <input type="number" class="credit" placeholder="학점" min="0" step="0.5" value="${credit}">
+    <select class="grade">
+      ${['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'].map(g => `<option value="${g}" ${g === grade ? 'selected' : ''}>${g}</option>`).join('')}
+    </select>
+    <select class="type">
+      <option value="전공" ${type === '전공' ? 'selected' : ''}>전공</option>
+      <option value="교양" ${type === '교양' ? 'selected' : ''}>교양</option>
+    </select>
+    <select class="semester">
+      ${['1-1','1-2','2-1','2-2','3-1','3-2'].map(s => `<option value="${s}" ${s === semester ? 'selected' : ''}>${s}학기</option>`).join('')}
+    </select>
+    <button class="delete-button" onclick="this.parentElement.remove(); saveCurrentRowsToStorage();">삭제</button>
+  `;
+
+  const column = toggleSide === 0 ? document.getElementById('leftColumn') : document.getElementById('rightColumn');
+  column.appendChild(row);
+  toggleSide = 1 - toggleSide;
+}
 
 function saveCurrentRowsToStorage() {
   const rows = document.querySelectorAll('.grade-row');
@@ -27,33 +53,6 @@ function saveCurrentRowsToStorage() {
   });
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(savedRows));
-}
-
-function addRow(subject = '', grade = 'A+', credit = '', isMajor = false, semester = '1-1') {
-  const row = document.createElement('div');
-  row.className = 'grade-row';
-  const type = isMajor ? '전공' : '교양';
-
-  row.innerHTML = `
-    <input type="text" placeholder="과목명" value="${subject}" oninput="saveCurrentRowsToStorage()">
-    <input type="number" class="credit" placeholder="학점" min="0" step="0.5" value="${credit}" oninput="saveCurrentRowsToStorage()">
-    <select class="grade" onchange="saveCurrentRowsToStorage()">
-      ${['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'].map(g => `<option value="${g}" ${g === grade ? 'selected' : ''}>${g}</option>`).join('')}
-    </select>
-    <select class="type" onchange="saveCurrentRowsToStorage()">
-      <option value="전공" ${type === '전공' ? 'selected' : ''}>전공</option>
-      <option value="교양" ${type === '교양' ? 'selected' : ''}>교양</option>
-    </select>
-    <select class="semester" onchange="saveCurrentRowsToStorage()">
-      ${['1-1','1-2','2-1','2-2','3-1','3-2'].map(s => `<option value="${s}" ${s === semester ? 'selected' : ''}>${s}학기</option>`).join('')}
-    </select>
-    <button onclick="this.parentElement.remove(); saveCurrentRowsToStorage();">삭제</button>
-  `;
-
-  const column = toggleSide === 0 ? document.getElementById('leftColumn') : document.getElementById('rightColumn');
-  column.appendChild(row);
-  toggleSide = 1 - toggleSide;
-  saveCurrentRowsToStorage();
 }
 
 function calculateGPA() {
