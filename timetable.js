@@ -91,17 +91,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let selectedCell = null;
 
-document.addEventListener("click", function (e) {
-  const cell = e.target.closest("td");
-  if (cell && cell.querySelector(".class-cell")) {
-    selectedCell = cell;
-    const courseText = cell.querySelector(".class-cell")?.childNodes[0]?.textContent?.trim() || "";
-    const roomText = cell.querySelector(".room")?.textContent?.trim() || "";
-    document.getElementById("editCourse").value = courseText;
-    document.getElementById("editRoom").value = roomText;
-    document.getElementById("editModal").style.display = "flex";
-  }
+document.querySelector("#timetableBody").addEventListener("click", function (e) {
+  const classCell = e.target.closest(".class-cell");
+  if (!classCell) return;
+
+  selectedCell = classCell.closest("td");
+  const courseText = classCell.childNodes[0]?.textContent?.trim() || "";
+  const roomText = classCell.querySelector(".room")?.textContent?.trim() || "";
+
+  document.getElementById("editCourse").value = courseText;
+  document.getElementById("editRoom").value = roomText;
+  document.getElementById("editModal").style.display = "flex";
 });
+
 
 function applyEdit() {
   if (!selectedCell) return;
