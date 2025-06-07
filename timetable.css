@@ -1,86 +1,72 @@
 body.timetable-page {
-  font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
+  color: #1f2937;
+  font-family: 'Segoe UI', sans-serif;
   padding: 2rem;
   min-height: 100vh;
-  box-sizing: border-box;
-}
-
-.logo-link {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 2rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #2563eb;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.user-id {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #1f2937;
-}
-
-.layout-wrapper {
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 4rem;
 }
 
-/* 입력 영역 */
-.form-container {
-  width: 280px;
+.container {
+  display: flex;
+  gap: 2rem; /* 시간표 편집기와 시간표 간 2cm 여백 */
+  width: 100%;
+  max-width: 1200px;
+}
+
+.editor-panel {
+  flex: 1.1; /* 약 10% 확대 */
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
 .timetable-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.75rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
 }
 
 .form-input,
 .form-select {
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
   border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: all 0.2s ease-in-out;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  transition: box-shadow 0.2s ease;
 }
 
 .form-input:focus,
 .form-select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.3);
+  box-shadow: 0 0 0 2px #3b82f6;
 }
 
 .submit-button {
-  padding: 0.5rem;
-  border: none;
   background-color: #3b82f6;
   color: white;
-  border-radius: 0.375rem;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  font-weight: 600;
+  transition: background-color 0.3s;
+  font-size: 1rem;
 }
 
 .submit-button:hover {
   background-color: #2563eb;
 }
 
-/* 시간표 테이블 */
-.table-wrapper {
+.table-panel {
+  flex: 0.9; /* 약 20% 축소 */
   overflow-x: auto;
 }
 
@@ -88,29 +74,82 @@ body.timetable-page {
   border-collapse: collapse;
   table-layout: fixed;
   min-width: 720px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 0.85rem;
+  border: 2px solid #6b7280;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .timetable-table th,
 .timetable-table td {
   width: 100px;
-  height: 60px;
+  max-width: 100px;
   border: 1px solid #9ca3af;
   text-align: center;
-  vertical-align: middle;
+  height: 60px;
   word-break: break-word;
+  vertical-align: middle;
 }
 
 .class-cell {
   font-size: 0.8rem;
-  background-color: #f0f9ff;
+  line-height: 1.3;
+  padding: 0.25rem;
   border-radius: 0.25rem;
-  padding: 0.3rem;
   box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
+  background-color: #f0f9ff;
 }
 
 .room {
   font-size: 0.75rem;
   color: #4b5563;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 250px;
+}
+
+.bg-color-1 { background-color: #fee2e2; }
+.bg-color-2 { background-color: #d1fae5; }
+.bg-color-3 { background-color: #fef3c7; }
+.bg-color-4 { background-color: #e0e7ff; }
+.bg-color-5 { background-color: #fce7f3; }
+.bg-color-6 { background-color: #ede9fe; }
+.bg-color-7 { background-color: #ccfbf1; }
+.delete-button {
+  background-color: #f87171;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #ef4444;
+}
+
+.time-selects {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
