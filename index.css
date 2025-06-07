@@ -2,11 +2,28 @@
   position: absolute;
   top: 1.5rem;
   left: 2rem;
-  font-size: 1rem;
-  color: #1f2937;
-  background-color: transparent;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 0.75rem;
   z-index: 10;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
+.top-bar.login-needed {
+  font-size: 1.4rem;
+  color: #dc2626;
+  background-color: #fff1f2;
+  border: 2px solid #dc2626;
+  padding: 0.75rem 1.25rem;
+}
+.top-bar.logged-in {
+  font-size: 1.1rem;
+  color: #111111;
+  background-color: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border: none;
+}
+
+
 body.main-page {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
