@@ -57,7 +57,7 @@ body.grade-page {
   text-align: center;
   margin-top: 0.25rem;
   margin-bottom: 1.5rem;
-  font-family: 'Segoe UI',sans-serif;
+  font-family: 'Segoe UI',sans-serif !important;
 }
 
 .grade-controls {
@@ -172,3 +172,4 @@ body.grade-page {
   color: #111827;
   transform: scale(1.03);
 }
+
