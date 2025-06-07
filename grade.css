@@ -55,7 +55,8 @@ body.grade-page {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .grade-controls {
@@ -170,4 +171,3 @@ body.grade-page {
   color: #111827;
   transform: scale(1.03);
 }
-
