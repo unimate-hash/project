@@ -1,4 +1,3 @@
-
 /* Base reset */
 body, h1, h2, h3, p, div, button, span {
   margin: 0;
@@ -76,7 +75,7 @@ body.main-page {
 
 .logo-link {
   position: absolute;
-  top: 1rem;
+  top: 0.55rem;
   right: 1.5rem;
   font-size: 2rem;
   font-weight: bold;
