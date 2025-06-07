@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>시간표 - UniMate</title>
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="timetable.css" />
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="timetable.css">
 </head>
-
 <body class="timetable-page">
   <div id="userInfo" class="user-id"></div>
-
   <a href="index.html" class="logo-link">UniMate</a>
 
-  <h1 class="timetable-title">시간표 편집기</h1>
+  <div class="layout-wrapper">
+    <!-- 좌측 입력 폼 -->
+    <div class="form-container">
+      <h2 class="timetable-title">시간표 편집기</h2>
+      <input type="text" id="courseName" class="form-input" placeholder="과목명">
 
-  <!-- ✅ 입력 폼 영역 -->
-  <div class="form-container">
-    <!-- 과목명 -->
-    <input type="text" id="courseName" class="form-input" placeholder="과목명" />
-
-    <!-- 수업장소 + 직접입력 -->
-    <div class="form-row">
       <select id="classroom" class="form-select">
         <option value="501호">501호</option>
         <option value="502호">502호</option>
@@ -32,54 +27,40 @@
         <option value="513호">513호</option>
         <option value="직접 입력">교양(직접 작성)</option>
       </select>
-      <input type="text" id="customRoom" class="form-input" placeholder="직접 입력 강의실 (선택 시 사용)" />
-    </div>
 
-    <!-- 요일 -->
-    <select id="day" class="form-select">
-      <option value="월">월</option>
-      <option value="화">화</option>
-      <option value="수">수</option>
-      <option value="목">목</option>
-      <option value="금">금</option>
-      <option value="토">토</option>
-    </select>
+      <input type="text" id="customRoom" class="form-input" placeholder="직접 입력 강의실 (선택 시 사용)">
 
-    <!-- 시작/종료 시각 -->
-    <div class="form-row">
+      <select id="day" class="form-select">
+        <option value="월">월</option>
+        <option value="화">화</option>
+        <option value="수">수</option>
+        <option value="목">목</option>
+        <option value="금">금</option>
+        <option value="토">토</option>
+      </select>
+
       <select id="startTime" class="form-select"></select>
       <select id="endTime" class="form-select"></select>
+
+      <button class="submit-button" onclick="addToTimetable()">추가</button>
     </div>
 
-    <button class="submit-button" onclick="addToTimetable()">추가</button>
-  </div>
-
-  <!-- 시간표 테이블 -->
-  <div class="table-wrapper">
-    <table class="timetable-table">
-      <thead>
-        <tr>
-          <th>시간</th>
-          <th>월</th>
-          <th>화</th>
-          <th>수</th>
-          <th>목</th>
-          <th>금</th>
-          <th>토</th>
-        </tr>
-      </thead>
-      <tbody id="timetableBody"></tbody>
-    </table>
-  </div>
-
-  <!-- 모달 팝업 -->
-  <div class="modal" id="editModal" style="display: none;">
-    <div class="modal-content">
-      <input type="text" id="editCourse" class="form-input" placeholder="과목명" />
-      <input type="text" id="editRoom" class="form-input" placeholder="강의실" />
-      <button class="submit-button" onclick="applyEdit()">수정</button>
-      <button class="delete-button" onclick="deleteCell()">삭제</button>
-      <button onclick="closeModal()">닫기</button>
+    <!-- 우측 시간표 -->
+    <div class="table-wrapper">
+      <table class="timetable-table">
+        <thead>
+          <tr>
+            <th>시간</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+          </tr>
+        </thead>
+        <tbody id="timetableBody"></tbody>
+      </table>
     </div>
   </div>
 
