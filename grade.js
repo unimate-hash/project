@@ -106,8 +106,8 @@ function calculateGPA() {
   const graduationEligible = totalCredits >= requiredTotal && majorCredits >= requiredMajor;
 
   const eligibilityText = graduationEligible
-    ? '<span style="color: #3b82f6; font-weight: bold;">가능</span>'
-    : '<span style="color: red; font-weight: bold;">불가능</span>';
+    ? '<span style="color: #3b82f6; font-weight: bold;">가능!!</span>'
+    : '<span style="color: red; font-weight: bold;">불가능!!</span>';
 
   const lackCredit = Math.max(0, requiredTotal - totalCredits);
   const lackMajor = Math.max(0, requiredMajor - majorCredits);
