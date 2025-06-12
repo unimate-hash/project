@@ -1,4 +1,4 @@
-/* 로그인 상단 바 공통 */
+
 .top-bar {
   position: absolute;
   top: 1.5rem;
@@ -13,7 +13,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* 로그인 필요 상태 */
+
 .top-bar.login-needed {
   font-size: 1rem;
   font-weight: 600;
@@ -26,7 +26,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* 로그인 버튼 */
+
 .login-button {
   background-color: #dc2626;
   color: white;
@@ -44,7 +44,7 @@
   background-color: #b91c1c;
 }
 
-/* 로그인 상태 표시 */
+
 .top-bar.logged-in {
   font-size: 1.1rem;
   color: #111111;
@@ -53,11 +53,11 @@
   border: none;
 }
 
-/* 본문 */
+
 body.main-page {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9fafb;
+  background-color: #fdfaf5;
   color: #111827;
 }
 
