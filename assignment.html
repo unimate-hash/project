@@ -13,22 +13,31 @@
 
   <a href="index.html" class="logo-link">UniMate</a>
 
-  <h1 class="page-title">과제 관리📝</h1>
+  <h1 class="page-title">과제 관리</h1>
 
-  <div class="container">
-    <div class="task-form">
-      <input id="subject" class="form-input" placeholder="과목명" type="text">
-      <input id="due" class="form-input" placeholder="마감일" type="date">
-      <select id="importance" class="form-input">
-        <option value="높음">중요도: 높음!!!</option>
-        <option value="보통" selected>중요도: 보통!!</option>
-        <option value="낮음">중요도: 낮음!</option>
-      </select>
-      <textarea id="memo" class="form-input" placeholder="메모 (선택)"></textarea>
-      <button onclick="addTask()" class="form-button">추가</button>
+  <!-- ✅ 변경 시작 -->
+  <div class="container assignment-layout">
+    <!-- 좌측 입력 폼 -->
+    <div class="task-form-section">
+      <form class="task-form">
+        <input id="subject" class="form-input" placeholder="과목명" type="text">
+        <input id="due" class="form-input" placeholder="마감일" type="date">
+        <select id="importance" class="form-input">
+          <option value="높음">중요도: 높음</option>
+          <option value="보통" selected>중요도: 보통</option>
+          <option value="낮음">중요도: 낮음</option>
+        </select>
+        <textarea id="memo" class="form-input" placeholder="메모 (선택)"></textarea>
+        <button onclick="addTask()" class="form-button" type="button">추가</button>
+      </form>
     </div>
-    <div id="taskList"></div>
+
+    
+    <div class="task-list-section" id="taskList">
+     
+    </div>
   </div>
+  
 
   <script src="assignment.js"></script>
 </body>
