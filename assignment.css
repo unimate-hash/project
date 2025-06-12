@@ -76,6 +76,7 @@
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
   margin-bottom: 0.75rem;
   transition: transform 0.2s ease;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .task-card:hover {
