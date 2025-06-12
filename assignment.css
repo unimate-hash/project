@@ -1,123 +1,36 @@
+
 .assignment-page {
-    background: #fdfaf5;
-    min-height: 100vh;
-    padding: 2rem;
-    font-family: sans-serif;
-  }
-  
-  .user-id {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #1f2937;
-  }
-
-  .page-title {
-    text-align: center;
-    font-size: 1.875rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    font-family: 'Segoe Ui',sans-serif !important;
-  }
-  
-  .container {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  
-  .task-form {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-input {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    width: 100%;
-  }
-  
-  .form-button {
-    background: #3b82f6;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .form-button:hover {
-    background: #2563eb;
-  }
-  
-  .task-card {
-    padding: 0.75rem;
-    border-radius: 0.375rem;
-    border: 1px solid #e5e7eb;
-    background: white;
-    margin-bottom: 0.5rem;
-  }
-  
-  .task-card.high {
-    border-color: #ef4444;
-  }
-  
-  .task-card.medium {
-    border-color: #facc15;
-  }
-  
-  .task-card.low {
-    border-color: #d1d5db;
-  }
-  
-  .task-card.done {
-    background: #f3f4f6;
-    text-decoration: line-through;
-  }
-  
-  .task-title {
-    font-weight: 600;
-    font-size: 1.125rem;
-  }
-  
-  .task-meta {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-top: 0.25rem;
-  }
-  
-  .delete-button {
-    color: #ef4444;
-    background: none;
-    border: none;
-    font-size: 0.875rem;
-    margin-left: 0.75rem;
-    cursor: pointer;
-  }
-  
-  .delete-button:hover {
-    color: #dc2626;
-  }
-.logo-link {
-  position: absolute;
-  top: 0.8rem;
-  right: 1.5rem;
-  font-size: 2rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #4F46E5;
-  font-family: 'Segoe UI', sans-serif;
-
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);  
-  transition: transform 0.3s ease, text-shadow 0.3s ease;  
+  background: #fff9e6;  
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: sans-serif;
 }
 
-.logo-link:hover {
-  transform: scale(1.03);  
-  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25); 
+
+.container {
+  width: 100%;          
+  max-width: none;      
+  margin: 0;            
+}
+
+
+.assignment-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+.task-form-section {
+  flex: 1;
+  min-width: 280px;
+}
+
+
+.task-list-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
