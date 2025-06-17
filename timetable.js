@@ -15,12 +15,11 @@ const COLORS = ["bg-color-1", "bg-color-2", "bg-color-3", "bg-color-4", "bg-colo
 const TIME_OPTIONS = Array.from({ length: 13 }, (_, i) => `${(i + 9).toString().padStart(2, '0')}:00`);
 const STORAGE_KEY = "timetableData";
 
-// 페이지 로드 시 이벤트 리스너 설정
+// 드롭다운 변경 이벤트 리스너
 document.addEventListener('DOMContentLoaded', function() {
     const classroomSelect = document.getElementById('classroom');
     const customInput = document.getElementById('customClassroom');
     
-    // 드롭다운 변경 시 직접 입력 필드 표시/숨김
     if (classroomSelect && customInput) {
         classroomSelect.addEventListener('change', function() {
             if (this.value === 'custom') {
@@ -54,32 +53,26 @@ function generateEmptyTable() {
         }
         tbody.appendChild(tr);
     }
-
+    
     const startTimeSelect = document.getElementById("startTime");
     const endTimeSelect = document.getElementById("endTime");
+    startTimeSelect.innerHTML = ``;
+    endTimeSelect.innerHTML = ``;
     
-    if (startTimeSelect && endTimeSelect) {
-        startTimeSelect.innerHTML = ``;
-        endTimeSelect.innerHTML = ``;
-        
-        TIME_OPTIONS.forEach(time => {
-            const opt1 = new Option(time, time);
-            const opt2 = new Option(time, time);
-            startTimeSelect.appendChild(opt1);
-            endTimeSelect.appendChild(opt2);
-        });
-    }
+    TIME_OPTIONS.forEach(time => {
+        const opt1 = new Option(time, time);
+        const opt2 = new Option(time, time);
+        startTimeSelect.appendChild(opt1);
+        endTimeSelect.appendChild(opt2);
+    });
 }
 
 function addToTimetable() {
     const course = document.getElementById("courseName").value.trim();
     const classroomSelect = document.getElementById("classroom");
     const customInput = document.getElementById("customClassroom");
-    const start = document.getElementById("startTime").value;
-    const end = document.getElementById("endTime").value;
-    const day = document.getElementById("day").value;
-
-    // 수업 장소 결정 로직
+    
+    // 핵심: 수업 장소 결정 로직
     let room;
     if (classroomSelect.value === 'custom') {
         room = customInput.value.trim();
@@ -91,33 +84,27 @@ function addToTimetable() {
     } else {
         room = classroomSelect.value;
     }
-
-    // 입력 값 검증
+    
     if (!course) {
         alert("과목명을 입력해주세요.");
         return;
     }
-
+    
+    const start = document.getElementById("startTime").value;
+    const end = document.getElementById("endTime").value;
+    const day = document.getElementById("day").value;
+    
     const startIdx = TIME_OPTIONS.indexOf(start);
     const endIdx = TIME_OPTIONS.indexOf(end);
     const colIdx = { "월": 1, "화": 2, "수": 3, "목": 4, "금": 5, "토": 6 }[day];
-
+    
     if (startIdx === -1 || endIdx === -1 || colIdx === undefined || startIdx >= endIdx) {
         alert("유효한 입력을 확인해주세요");
         return;
     }
-
-    // 시간 충돌 검사
-    const rows = document.querySelectorAll("#timetableBody tr");
-    for (let i = startIdx; i < endIdx; i++) {
-        const cell = rows[i].children[colIdx];
-        if (cell.innerHTML.trim() !== '') {
-            alert("해당 시간에 이미 수업이 있습니다.");
-            return;
-        }
-    }
-
+    
     const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const rows = document.querySelectorAll("#timetableBody tr");
     
     for (let i = startIdx; i < endIdx; i++) {
         const cell = rows[i].children[colIdx];
@@ -128,7 +115,7 @@ function addToTimetable() {
             </div>
         `;
     }
-
+    
     // 폼 초기화
     document.getElementById("courseName").value = "";
     classroomSelect.selectedIndex = 0;
@@ -144,7 +131,7 @@ function addToTimetable() {
 function openModal(element) {
     const modal = document.getElementById("modal");
     modal.style.display = "flex";
-    modal.dataset.target = element;
+    modal.currentElement = element;
 }
 
 function closeModal() {
@@ -153,68 +140,55 @@ function closeModal() {
 
 function deleteClass() {
     const modal = document.getElementById("modal");
-    const target = modal.dataset.target;
-    
-    if (target) {
-        const element = document.querySelector(`[onclick="openModal(this)"]`);
-        if (element && element === target) {
-            element.parentElement.innerHTML = '';
-        }
+    if (modal.currentElement) {
+        modal.currentElement.innerHTML = "";
+        closeModal();
+        saveTimetable();
     }
-    
-    closeModal();
-    saveTimetable();
 }
 
 function saveTimetable() {
-    const tbody = document.getElementById("timetableBody");
-    const data = [];
+    const tableData = [];
+    const rows = document.querySelectorAll("#timetableBody tr");
     
-    const rows = tbody.querySelectorAll("tr");
     rows.forEach((row, timeIndex) => {
         const cells = row.querySelectorAll("td");
-        cells.forEach((cell, dayIndex) => {
-            if (dayIndex > 0 && cell.innerHTML.trim() !== '') {
-                const classDiv = cell.querySelector('.class-cell');
-                if (classDiv) {
-                    const course = classDiv.children[0].textContent;
-                    const room = classDiv.children[1].textContent;
-                    const color = classDiv.className.split(' ').find(c => c.startsWith('bg-color-'));
-                    
-                    data.push({
-                        timeIndex,
-                        dayIndex,
-                        course,
-                        room,
-                        color
-                    });
-                }
+        for (let dayIndex = 1; dayIndex < cells.length; dayIndex++) {
+            const cell = cells[dayIndex];
+            const classDiv = cell.querySelector(".class-cell");
+            if (classDiv) {
+                const course = classDiv.querySelector("div:first-child").textContent;
+                const room = classDiv.querySelector(".room").textContent;
+                const color = Array.from(classDiv.classList).find(cls => cls.startsWith("bg-color"));
+                
+                tableData.push({
+                    timeIndex,
+                    dayIndex,
+                    course,
+                    room,
+                    color
+                });
             }
-        });
+        }
     });
     
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tableData));
 }
 
 function loadTimetable() {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    const rows = document.querySelectorAll("#timetableBody tr");
-    
-    data.forEach(item => {
-        const cell = rows[item.timeIndex].children[item.dayIndex];
-        cell.innerHTML = `
-            <div class="class-cell ${item.color}" onclick="openModal(this)">
-                <div>${item.course}</div>
-                <div class="room">${item.room}</div>
-            </div>
-        `;
-    });
-}
-
-// 모달 외부 클릭 시 닫기
-window.onclick = function(event) {
-    const modal = document.getElementById("modal");
-    if (event.target === modal) {
-        closeModal();
+    const savedData = localStorage.getItem(STORAGE_KEY);
+    if (savedData) {
+        const tableData = JSON.parse(savedData);
+        const rows = document.querySelectorAll("#timetableBody tr");
+        
+        tableData.forEach(item => {
+            const cell = rows[item.timeIndex].children[item.dayIndex];
+            cell.innerHTML = `
+                <div class="class-cell ${item.color}" onclick="openModal(this)">
+                    <div>${item.course}</div>
+                    <div class="room">${item.room}</div>
+                </div>
+            `;
+        });
     }
 }
