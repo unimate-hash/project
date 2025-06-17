@@ -17,37 +17,25 @@ const STORAGE_KEY = "timetableData";
 
 // 페이지 로드 시 이벤트 리스너 설정
 document.addEventListener('DOMContentLoaded', function() {
+    const classroomSelect = document.getElementById('classroom');
+    const customInput = document.getElementById('customClassroom');
+    
+    // 드롭다운 변경 시 직접 입력 필드 표시/숨김
+    if (classroomSelect && customInput) {
+        classroomSelect.addEventListener('change', function() {
+            if (this.value === 'custom') {
+                customInput.style.display = 'block';
+                customInput.focus();
+            } else {
+                customInput.style.display = 'none';
+                customInput.value = '';
+            }
+        });
+    }
+    
     generateEmptyTable();
     loadTimetable();
-    setupCustomInput();
 });
-
-function setupCustomInput() {
-    const classroomSelect = document.getElementById("classroom");
-    
-    // 직접 입력 필드를 동적으로 생성
-    const customInput = document.createElement('input');
-    customInput.type = 'text';
-    customInput.id = 'customClassroom';
-    customInput.className = 'form-input';
-    customInput.placeholder = '수업 장소를 입력하세요';
-    customInput.style.display = 'none';
-    customInput.style.marginTop = '0.5rem';
-    
-    // select 요소 다음에 input 추가
-    classroomSelect.parentNode.appendChild(customInput);
-    
-    // 드롭다운 변경 이벤트 리스너
-    classroomSelect.addEventListener('change', function() {
-        if (this.value === '직접 입력') {
-            customInput.style.display = 'block';
-            customInput.focus();
-        } else {
-            customInput.style.display = 'none';
-            customInput.value = '';
-        }
-    });
-}
 
 function generateEmptyTable() {
     const tbody = document.getElementById("timetableBody");
@@ -93,7 +81,7 @@ function addToTimetable() {
 
     // 수업 장소 결정 로직
     let room;
-    if (classroomSelect.value === '직접 입력') {
+    if (classroomSelect.value === 'custom') {
         room = customInput.value.trim();
         if (!room) {
             alert("직접 입력을 선택했을 때는 수업 장소를 입력해주세요.");
@@ -144,10 +132,8 @@ function addToTimetable() {
     // 폼 초기화
     document.getElementById("courseName").value = "";
     classroomSelect.selectedIndex = 0;
-    if (customInput) {
-        customInput.style.display = 'none';
-        customInput.value = '';
-    }
+    customInput.style.display = 'none';
+    customInput.value = '';
     document.getElementById("startTime").selectedIndex = 0;
     document.getElementById("endTime").selectedIndex = 0;
     document.getElementById("day").selectedIndex = 0;
@@ -170,13 +156,9 @@ function deleteClass() {
     const target = modal.dataset.target;
     
     if (target) {
-        // 모든 class-cell을 찾아서 target과 비교
-        const allCells = document.querySelectorAll('.class-cell');
-        for (let cell of allCells) {
-            if (cell === target) {
-                cell.parentElement.innerHTML = '';
-                break;
-            }
+        const element = document.querySelector(`[onclick="openModal(this)"]`);
+        if (element && element === target) {
+            element.parentElement.innerHTML = '';
         }
     }
     
