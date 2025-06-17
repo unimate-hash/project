@@ -129,6 +129,16 @@ body.timetable-page {
   color: #4b5563;
 }
 
+#customClassroom {
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+#customClassroom.show {
+    display: block !important;
+}
+
+
 .modal {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
